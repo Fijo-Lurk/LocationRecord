@@ -1,6 +1,5 @@
 # Examination assignment Filip Johansson
 
-This assigment is built to...
 The goal of the project is to create a complete application with a limited number of endpoints
 
 [Trello](https://trello.com/b/UNwqkr2h/location) Project planning
