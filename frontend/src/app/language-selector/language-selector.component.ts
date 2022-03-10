@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-language-selector',
@@ -7,16 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LanguageSelectorComponent implements OnInit {
   menuItems = [
-    { lang: 'English', icon: '../../assets/img/us.svg' },
-    { lang: 'Swedish', icon: '../../assets/img/se.svg' },
+    { lang: 'EN', icon: '../../assets/img/us.svg', i18n: 'en' },
+    { lang: 'SE', icon: '../../assets/img/se.svg', i18n: 'se' },
   ];
-  selectedValue = { lang: 'English', icon: '../../assets/img/us.svg' };
+  selectedValue = { lang: 'EN', icon: '../../assets/img/us.svg', i18n: 'en' };
 
-  constructor() {}
+  constructor(public translateService: TranslateService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (localStorage.getItem('i18n') === 'se') {
+      this.selectedValue = this.menuItems[1];
+    }
+  }
 
-  changelang(lang: string, icon: string) {
-    this.selectedValue = { lang: lang, icon: icon };
+  changelang(lang: string, icon: string, i18n: string) {
+    this.selectedValue = { lang: lang, icon: icon, i18n: i18n };
+    this.translateService.use(i18n);
+    localStorage.setItem('i18n', i18n);
   }
 }
