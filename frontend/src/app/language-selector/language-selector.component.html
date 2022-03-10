@@ -16,12 +16,12 @@
   <mat-selection-list [multiple]="false">
     <mat-list-option
       [value]="item.lang"
-      (click)="changelang(item.lang, item.icon)"
+      (click)="changelang(item.lang, item.icon, item.i18n)"
       *ngFor="let item of menuItems"
       [class]="item?.lang === selectedValue.lang ? 'selected' : null"
     >
       <img mat-list-icon [src]="item.icon" />
-      <div>{{ item.lang }}</div>
+      <div>{{ item.lang | translate }}</div>
     </mat-list-option>
   </mat-selection-list>
 </mat-menu>
