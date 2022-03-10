@@ -1,0 +1,27 @@
+<img
+  [alt]="selectedValue.lang + ' flag'"
+  class="flag-icon"
+  [src]="selectedValue.icon"
+/>
+<button
+  mat-icon-button
+  [matMenuTriggerFor]="menu"
+  aria-label="icon-button with a menu"
+  #opend="matMenuTrigger"
+  [class]="opend.menuOpen ? 'selected' : null"
+>
+  <mat-icon class="arrow">keyboard_arrow_down</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <mat-selection-list [multiple]="false">
+    <mat-list-option
+      [value]="item.lang"
+      (click)="changelang(item.lang, item.icon)"
+      *ngFor="let item of menuItems"
+      [class]="item?.lang === selectedValue.lang ? 'selected' : null"
+    >
+      <img mat-list-icon [src]="item.icon" />
+      <div>{{ item.lang }}</div>
+    </mat-list-option>
+  </mat-selection-list>
+</mat-menu>

@@ -1,0 +1,26 @@
+:host {
+  align-items: center;
+  display: flex;
+}
+
+.arrow:hover {
+  background-color: #2d9cdb;
+  border-radius: 50%;
+}
+
+button.mat-menu-item:hover,
+mat-list-option:hover,
+mat-list-option[aria-selected="true"],
+.selected {
+  background: rgba(40, 159, 233, 0.1);
+}
+
+.flag-icon {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.2rem;
+}
+
+.mat-list-icon {
+  border-radius: 0% !important;
+}
