@@ -1,4 +1,29 @@
 {
   "SE": "Svenska",
-  "EN": "Engelska"
+  "EN": "Engelska",
+  "search": "Sök",
+
+  "locationList": {
+    "noData": " Inga data matchar filtret",
+    "deleteColumn": "Ta bort",
+    "editColumn": "Uppdatera",
+    "environment": "Miljö",
+    "customerId": "Kundnummer",
+    "appId": "App-id",
+    "studioUrl": "Studio url"
+  },
+  "button": {
+    "genericDeleteText": "Ta bort",
+    "genericCancelText": "Avbryt",
+    "genericOkText": "OK",
+    "genericSaveText": "Spara"
+  },
+  "dialog": {
+    "genericConfirmActionDialogTitle": "Varning",
+    "specificDeleteMessage": "Är du säker att du vill radera",
+    "genericWarningOnDeleteMessage": "Du kan inte ångra den här åtgärden"
+  },
+  "form": {
+    "genericFormFieldRequiredErrorMessage": "Fältet är obligatoriskt."
+  }
 }

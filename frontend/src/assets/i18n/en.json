@@ -1,8 +1,34 @@
 {
-  "HOME": {
-    "TITLE": "Hello Angular with ngx-translate!",
-    "SELECT": "Change language"
+  "home": {
+    "title": "Hello Angular with ngx-translate!",
+    "select": "Change language"
   },
   "SE": "Swedish",
-  "EN": "English"
+  "EN": "English",
+  "search": "Search",
+
+  "locationList": {
+    "noData": " No data matching the filter",
+    "deleteColumn": "Delete",
+    "editColumn": "Edit",
+    "environment": "Environment",
+    "customerId": "Customer id",
+    "appId": "App id",
+    "studioUrl": "Studio url"
+  },
+
+  "button": {
+    "genericDeleteText": "Delete",
+    "genericCancelText": "Cancel",
+    "genericOkText": "OK",
+    "genericSaveText": "Save"
+  },
+  "dialog": {
+    "genericConfirmActionTitle": "Warning",
+    "specificDeleteMessage": "Are you sure you want to delete",
+    "genericWarningOnDeleteMessage": "You can't undo this action"
+  },
+  "form": {
+    "genericFormFieldRequiredErrorMessage": "Is required."
+  }
 }
