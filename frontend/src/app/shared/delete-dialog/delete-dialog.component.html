@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>
+  {{ data.title }}
+</h1>
+
+<div mat-dialog-content>
+  <p id="message">
+    {{ data.message }} <span class="message-higlight">"{{ data.value }}"</span>?
+  </p>
+  <p id="message">{{ data.subMessage }}!</p>
+</div>
+<div class="actions" align="end" mat-dialog-actions>
+  <button
+    #ok
+    class="ok"
+    color="warn"
+    mat-raised-button
+    [mat-dialog-close]="true"
+  >
+    {{ "button.genericDeleteText" | translate }}
+  </button>
+  <button
+    #cancel
+    class="cancel"
+    mat-button
+    color="primary"
+    [mat-dialog-close]="false"
+  >
+    {{ "button.genericCancelText" | translate }}
+  </button>
+</div>

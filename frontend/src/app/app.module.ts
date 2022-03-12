@@ -19,8 +19,13 @@ import { HeaderComponent } from './header/header.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { AngularMaterialModule } from './shared/angular-material/angular-material.module';
 import { LanguageSelectorComponent } from './language-selector/language-selector.component';
-import { getLocaleEraNames, registerLocaleData } from '@angular/common';
-import { environment } from 'src/environments/environment';
+import { registerLocaleData } from '@angular/common';
+import { LocationListComponent } from './location-list/location-list.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import { DeleteDialogComponent } from './shared/delete-dialog/delete-dialog.component';
+import { FormDialogComponent } from './shared/form-dialog/form-dialog.component';
 
 export function localeInitializer(translate: TranslateService) {
   return async () => {
@@ -44,13 +49,19 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     HeaderComponent,
     MainNavComponent,
     LanguageSelectorComponent,
+    LocationListComponent,
+    DeleteDialogComponent,
+    FormDialogComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
     AngularMaterialModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    MatNativeDateModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

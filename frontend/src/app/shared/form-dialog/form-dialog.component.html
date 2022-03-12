@@ -1,0 +1,96 @@
+<form
+  id="apps-form"
+  [formGroup]="locationForm"
+  #formDirective="ngForm"
+  (submit)="onSubmit(formDirective)"
+>
+  <mat-form-field
+    class="custom-field-form"
+    color="primary"
+    appearance="outline"
+    floatLabel="always"
+  >
+    <mat-label>{{ "locationList.customerId" | translate }}</mat-label>
+    <input
+      type="text"
+      matInput
+      formControlName="customer_id"
+      autocomplete="off"
+      required
+    />
+    <mat-error *ngIf="locationForm.controls['customer_id'].errors?.required">{{
+      "form.genericFormFieldRequiredErrorMessage" | translate
+    }}</mat-error>
+  </mat-form-field>
+  <mat-form-field
+    class="custom-field-form"
+    color="primary"
+    appearance="outline"
+    floatLabel="always"
+  >
+    <mat-label>{{ "locationList.environment" | translate }}</mat-label>
+    <mat-select formControlName="environment" [(value)]="selectedEnvironment">
+      <mat-option [value]="option" *ngFor="let option of environment">{{
+        option
+      }}</mat-option>
+    </mat-select>
+
+    <mat-error *ngIf="locationForm.controls['environment'].errors?.required">{{
+      "form.genericFormFieldRequiredErrorMessage" | translate
+    }}</mat-error>
+  </mat-form-field>
+  <mat-form-field
+    class="custom-field-form"
+    color="primary"
+    appearance="outline"
+    floatLabel="always"
+  >
+    <mat-label>{{ "locationList.appId" | translate }}</mat-label>
+    <input
+      type="text"
+      matInput
+      formControlName="app_id"
+      autocomplete="off"
+      required
+    />
+    <mat-error *ngIf="locationForm.controls['app_id'].errors?.required">{{
+      "form.genericFormFieldRequiredErrorMessage" | translate
+    }}</mat-error>
+  </mat-form-field>
+  <mat-form-field
+    class="custom-field-form"
+    color="primary"
+    appearance="outline"
+    floatLabel="always"
+  >
+    <mat-label>{{ "locationList.studioUrl" | translate }}</mat-label>
+    <input
+      type="text"
+      matInput
+      formControlName="studio_url"
+      autocomplete="off"
+      required
+    />
+    <mat-error *ngIf="locationForm.controls['studio_url'].errors?.required">{{
+      "form.genericFormFieldRequiredErrorMessage" | translate
+    }}</mat-error>
+  </mat-form-field>
+</form>
+<div align="end">
+  <button #cancel mat-button color="primary" [mat-dialog-close]="false">
+    {{ "button.genericCancelText" | translate }}
+  </button>
+  <button
+    class="save-btn"
+    type="submit"
+    [disabled]="locationForm.invalid"
+    mat-raised-button
+    color="primary"
+    form="apps-form"
+    #update
+    mat-raised-button
+    [mat-dialog-close]="true"
+  >
+    {{ "button.genericSaveText" | translate }}
+  </button>
+</div>
