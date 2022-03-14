@@ -4,6 +4,31 @@ The goal of the project is to create a complete application with a limited numbe
 
 [Trello](https://trello.com/b/UNwqkr2h/location) Project planning
 
+## installation
+
+- Clone the repo
+
+  ```sh
+  $ git clone https://github.com/Fijo-Lurk/LocationRecord.git
+  ```
+
+- Install and run frontend
+
+  ```sh
+  $ cd /frontend
+  $ npm install
+  $ cd ../
+  $ npm run start:frontend
+  ```
+
+- Install and run backend
+  ```sh
+  $ cd /backend
+  $ npm install
+  $ cd ../
+  $ npm run start:backend
+  ```
+
 ## Technologies & Frameworks
 
 ### Frontend
@@ -21,3 +46,4 @@ The goal of the project is to create a complete application with a limited numbe
 ### Server
 
 - [Sqlire](https://www.sqlite.org/index.html)
+
