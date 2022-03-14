@@ -15,7 +15,7 @@ The goal of the project is to create a complete application with a limited numbe
 - Install and run frontend
 
   ```sh
-  $ cd /frontend
+  $ cd frontend
   $ npm install
   $ cd ../
   $ npm run start:frontend
@@ -23,7 +23,7 @@ The goal of the project is to create a complete application with a limited numbe
 
 - Install and run backend
   ```sh
-  $ cd /backend
+  $ cd backend
   $ npm install
   $ cd ../
   $ npm run start:backend
