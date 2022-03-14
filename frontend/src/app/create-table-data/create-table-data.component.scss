@@ -1,0 +1,48 @@
+#tableForm {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  margin-top: 2rem;
+  button {
+    margin-right: 1rem;
+  }
+}
+
+.environment-field-form {
+  width: 10%;
+  min-width: 100px;
+}
+
+.customerId-field-form,
+.appId-field-form,
+.studioUrl-field-form,
+.environment-field-form {
+  margin-right: 2rem;
+}
+
+.create-btn {
+  text-align: center;
+  border-radius: 50px;
+  width: 120px;
+  background-color: #2f80ed;
+  span {
+    margin-right: 0.5rem;
+    font-size: 24px;
+  }
+}
+
+.create-container {
+  margin: 1rem 0rem 1rem 0rem;
+  width: 98%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 425px) {
+  #tableForm {
+    justify-content: left;
+    margin: 0rem 0rem 0.5rem 1rem;
+  }
+}

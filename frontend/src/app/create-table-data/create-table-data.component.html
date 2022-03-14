@@ -1,0 +1,107 @@
+<div class="create-container">
+  <button
+    type="button"
+    (click)="getForm()"
+    class="create-btn"
+    mat-raised-button
+    color="primary"
+  >
+    <span class="create-span">+</span>
+    {{ "button.genericCreateText" | translate }}
+  </button>
+</div>
+
+<form
+  *ngIf="showForm"
+  id="tableForm"
+  [formGroup]="tableForm"
+  #formDirective="ngForm"
+  (submit)="onSubmit(formDirective)"
+>
+  <mat-form-field
+    class="customerId-field-form"
+    color="primary"
+    appearance="outline"
+    floatLabel="always"
+  >
+    <mat-label>{{ "locationList.customerId" | translate }}</mat-label>
+    <input
+      type="text"
+      matInput
+      formControlName="customerId"
+      autocomplete="off"
+      required
+    />
+    <mat-error *ngIf="tableForm.controls['customerId'].errors?.required">{{
+      "form.genericFormFieldRequiredErrorMessage" | translate
+    }}</mat-error>
+  </mat-form-field>
+  <mat-form-field
+    class="environment-field-form"
+    color="primary"
+    appearance="outline"
+    floatLabel="always"
+  >
+    <mat-label>{{ "locationList.environment" | translate }}</mat-label>
+    <mat-select formControlName="environment">
+      <mat-option [value]="option" *ngFor="let option of environment">{{
+        option
+      }}</mat-option>
+    </mat-select>
+
+    <mat-error *ngIf="tableForm.controls['environment'].errors?.required">{{
+      "form.genericFormFieldRequiredErrorMessage" | translate
+    }}</mat-error>
+  </mat-form-field>
+  <mat-form-field
+    class="appId-field-form"
+    color="primary"
+    appearance="outline"
+    floatLabel="always"
+  >
+    <mat-label>{{ "locationList.appId" | translate }}</mat-label>
+    <input
+      type="text"
+      matInput
+      formControlName="appId"
+      autocomplete="off"
+      required
+    />
+    <mat-error *ngIf="tableForm.controls['appId'].errors?.required">{{
+      "form.genericFormFieldRequiredErrorMessage" | translate
+    }}</mat-error>
+  </mat-form-field>
+  <mat-form-field
+    class="studioUrl-field-form"
+    color="primary"
+    appearance="outline"
+    floatLabel="always"
+  >
+    <mat-label>{{ "locationList.studioUrl" | translate }}</mat-label>
+    <input
+      type="text"
+      matInput
+      formControlName="studioUrl"
+      autocomplete="off"
+      required
+    />
+    <mat-error *ngIf="tableForm.controls['studioUrl'].errors?.required">{{
+      "form.genericFormFieldRequiredErrorMessage" | translate
+    }}</mat-error>
+  </mat-form-field>
+
+  <button type="reset" mat-button color="primary" (click)="tableForm.reset()">
+    {{ "button.genericClearText" | translate }}
+  </button>
+  <button
+    class="save-btn"
+    type="submit"
+    [disabled]="tableForm.invalid"
+    mat-raised-button
+    color="primary"
+    form="tableForm"
+    mat-raised-button
+  >
+    {{ "button.genericSaveText" | translate }}
+  </button>
+</form>

@@ -15,3 +15,8 @@ body {
   --content-area-size: calc(100vh - var(--header-height));
   --main-area-size: calc(100vh - var(--header-height));
 }
+
+.green-snackbar {
+  background-color: #26b442;
+  color: white;
+}
