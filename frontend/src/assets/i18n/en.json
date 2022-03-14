@@ -11,8 +11,8 @@
     "noData": " No data matching the filter",
     "deleteColumn": "Delete",
     "editColumn": "Edit",
-    "environment": "Environment",
     "customerId": "Customer id",
+    "environment": "Environment",
     "appId": "App id",
     "studioUrl": "Studio url"
   },
@@ -21,7 +21,9 @@
     "genericDeleteText": "Delete",
     "genericCancelText": "Cancel",
     "genericOkText": "OK",
-    "genericSaveText": "Save"
+    "genericSaveText": "Save",
+    "genericClearText": "Clear",
+    "genericCreateText": "Create"
   },
   "dialog": {
     "genericConfirmActionTitle": "Warning",
@@ -29,6 +31,7 @@
     "genericWarningOnDeleteMessage": "You can't undo this action"
   },
   "form": {
-    "genericFormFieldRequiredErrorMessage": "Is required."
+    "genericFormFieldRequiredErrorMessage": "Is required.",
+    "genericeFormSuccessfulCompleted": "Form was submitted!"
   }
 }

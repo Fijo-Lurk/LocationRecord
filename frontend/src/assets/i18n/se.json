@@ -7,8 +7,8 @@
     "noData": " Inga data matchar filtret",
     "deleteColumn": "Ta bort",
     "editColumn": "Uppdatera",
-    "environment": "Miljö",
     "customerId": "Kundnummer",
+    "environment": "Miljö",
     "appId": "App-id",
     "studioUrl": "Studio url"
   },
@@ -16,7 +16,9 @@
     "genericDeleteText": "Ta bort",
     "genericCancelText": "Avbryt",
     "genericOkText": "OK",
-    "genericSaveText": "Spara"
+    "genericSaveText": "Spara",
+    "genericClearText": "Rensa",
+    "genericCreateText": "Skapa"
   },
   "dialog": {
     "genericConfirmActionDialogTitle": "Varning",
@@ -24,6 +26,7 @@
     "genericWarningOnDeleteMessage": "Du kan inte ångra den här åtgärden"
   },
   "form": {
-    "genericFormFieldRequiredErrorMessage": "Fältet är obligatoriskt."
+    "genericFormFieldRequiredErrorMessage": "Fältet är obligatoriskt.",
+    "genericeFormSuccessfulCompleted": "Formulären skickades in!"
   }
 }

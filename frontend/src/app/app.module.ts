@@ -26,6 +26,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DeleteDialogComponent } from './shared/delete-dialog/delete-dialog.component';
 import { FormDialogComponent } from './shared/form-dialog/form-dialog.component';
+import { CreateTableDataComponent } from './create-table-data/create-table-data.component';
 
 export function localeInitializer(translate: TranslateService) {
   return async () => {
@@ -52,6 +53,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     LocationListComponent,
     DeleteDialogComponent,
     FormDialogComponent,
+    CreateTableDataComponent,
   ],
   imports: [
     BrowserModule,
