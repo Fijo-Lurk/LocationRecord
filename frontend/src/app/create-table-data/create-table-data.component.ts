@@ -19,7 +19,7 @@ export class CreateTableDataComponent implements OnInit {
   tableForm = new FormGroup({
     customerId: new FormControl('', [Validators.required]),
     environment: new FormControl('', [Validators.required]),
-    appId: new FormControl('', [Validators.required]),
+    appId: new FormControl(''),
     studioUrl: new FormControl('', [Validators.required]),
   });
 
