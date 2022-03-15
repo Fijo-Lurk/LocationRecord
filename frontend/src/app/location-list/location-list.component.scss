@@ -34,17 +34,20 @@ table {
   mat-icon {
     padding-right: 0.5rem;
   }
-  .delete-icon {
+  .delete-icon,
+  .edit-icon {
     visibility: hidden;
   }
-  .delete-icon:hover {
-    cursor: pointer;
-  }
+
+  .delete-icon:hover,
   .edit-icon:hover {
     cursor: pointer;
   }
 }
 
-tr:hover .delete-icon {
-  visibility: visible;
+tr:hover {
+  .delete-icon,
+  .edit-icon {
+    visibility: visible;
+  }
 }
