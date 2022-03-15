@@ -45,5 +45,5 @@ The goal of the project is to create a complete application with a limited numbe
 
 ### Server
 
-- [Sqlire](https://www.sqlite.org/index.html)
+- [sqlite](https://www.sqlite.org/index.html)
 
