@@ -48,3 +48,16 @@ table {
 tr:hover .delete-icon {
   visibility: visible;
 }
+
+.table-w-5 {
+  width: 5%;
+}
+
+.table-w-20 {
+  width: 20%;
+}
+th.mat-header-cell:last-of-type,
+td.mat-cell:last-of-type,
+td.mat-footer-cell:last-of-type {
+  padding-right: 0px;
+}
