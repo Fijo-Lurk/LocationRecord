@@ -17,9 +17,12 @@ addons:
 cache:
   directories:
     - ./node_modules
+    
+before_install: cd frontend
 
 install:
-  - cd frontend && npm install
-
+  - npm install
+  
+before_script: cd frontend
 script:
-  -  cd frontend && npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+  -  npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
