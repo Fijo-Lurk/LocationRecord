@@ -49,6 +49,5 @@ export class CreateTableDataComponent implements OnInit {
 
   public onClear(): void {
     this.tableForm.reset();
-    3;
   }
 }

@@ -1,5 +1,6 @@
 <div class="create-container">
   <button
+    *ngIf="!showForm"
     type="button"
     (click)="getForm()"
     class="create-btn"
@@ -8,6 +9,17 @@
   >
     <span class="create-span">+</span>
     {{ "button.genericCreateText" | translate }}
+  </button>
+  <button
+    *ngIf="showForm"
+    type="button"
+    (click)="getForm()"
+    class="create-btn"
+    mat-raised-button
+    color="primary"
+  >
+    <span class="create-span">-</span>
+    {{ "button.genericCloseText" | translate }}
   </button>
 </div>
 
