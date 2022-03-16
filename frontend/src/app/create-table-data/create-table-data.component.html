@@ -60,13 +60,7 @@
     floatLabel="always"
   >
     <mat-label>{{ "locationList.appId" | translate }}</mat-label>
-    <input
-      type="text"
-      matInput
-      formControlName="appId"
-      autocomplete="off"
-      required
-    />
+    <input type="text" matInput formControlName="appId" autocomplete="off" />
     <mat-error *ngIf="tableForm.controls['appId'].errors?.required">{{
       "form.genericFormFieldRequiredErrorMessage" | translate
     }}</mat-error>

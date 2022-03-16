@@ -24,7 +24,7 @@ export class FormDialogComponent implements OnInit {
   public locationForm = new FormGroup({
     customer_id: new FormControl(this.data.customer_id, [Validators.required]),
     environment: new FormControl(this.data.environment, [Validators.required]),
-    app_id: new FormControl(this.data.app_id, [Validators.required]),
+    app_id: new FormControl(this.data.app_id),
     studio_url: new FormControl(this.data.studio_url, [Validators.required]),
   });
   constructor(
