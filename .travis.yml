@@ -20,4 +20,4 @@ install:
   - cd frontend && npm install
   
 script:
-  - cd frontend && ng test
+  - ng test
