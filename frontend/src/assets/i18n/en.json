@@ -1,8 +1,4 @@
 {
-  "home": {
-    "title": "Hello Angular with ngx-translate!",
-    "select": "Change language"
-  },
   "SE": "Swedish",
   "EN": "English",
   "search": "Search",

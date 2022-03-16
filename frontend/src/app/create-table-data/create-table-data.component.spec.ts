@@ -1,4 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslateModule } from '@ngx-translate/core';
+import { of } from 'rxjs';
+import { AngularMaterialModule } from '../shared/angular-material/angular-material.module';
 
 import { CreateTableDataComponent } from './create-table-data.component';
 
@@ -8,9 +13,17 @@ describe('CreateTableDataComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreateTableDataComponent ]
-    })
-    .compileComponents();
+      declarations: [CreateTableDataComponent],
+      imports: [
+        AngularMaterialModule,
+        BrowserAnimationsModule,
+        TranslateModule.forRoot(),
+      ],
+      providers: [
+        { provide: MAT_DIALOG_DATA, useValue: {} },
+        { provide: MatDialogRef, useValue: { beforeClosed: () => of(true) } },
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {
