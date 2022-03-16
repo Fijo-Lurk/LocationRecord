@@ -18,11 +18,9 @@ cache:
   directories:
     - ./node_modules
     
-before_install: cd frontend
 
 install:
-  - npm install
+  - cd frontend && npm install
   
-before_script: cd frontend
 script:
-  -  npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+  - cd frontend && npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
