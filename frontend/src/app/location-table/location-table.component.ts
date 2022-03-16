@@ -88,11 +88,11 @@ const ELEMENT_DATA: LocationData[] = [
 ];
 
 @Component({
-  selector: 'app-location-list',
-  templateUrl: './location-list.component.html',
-  styleUrls: ['./location-list.component.scss'],
+  selector: 'app-location-table',
+  templateUrl: './location-table.component.html',
+  styleUrls: ['./location-table.component.scss'],
 })
-export class LocationListComponent {
+export class LocationTableComponent {
   constructor(
     public translateService: TranslateService,
     public dialog: MatDialog

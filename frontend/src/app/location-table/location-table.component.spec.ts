@@ -4,15 +4,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule } from '@ngx-translate/core';
 import { AngularMaterialModule } from '../shared/angular-material/angular-material.module';
 
-import { LocationListComponent } from './location-list.component';
+import { LocationTableComponent } from './location-table.component';
 
 describe('LocationListComponent', () => {
-  let component: LocationListComponent;
-  let fixture: ComponentFixture<LocationListComponent>;
+  let component: LocationTableComponent;
+  let fixture: ComponentFixture<LocationTableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [LocationListComponent],
+      declarations: [LocationTableComponent],
       imports: [
         BrowserModule,
         BrowserAnimationsModule,
@@ -23,7 +23,7 @@ describe('LocationListComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LocationListComponent);
+    fixture = TestBed.createComponent(LocationTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

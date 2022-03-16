@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LocationListComponent } from './location-list/location-list.component';
+import { LocationTableComponent } from './location-table/location-table.component';
 
 const routes: Routes = [
-  { path: '', component: LocationListComponent },
+  { path: '', component: LocationTableComponent },
   {
     path: 'page-not-found',
-    component: LocationListComponent,
+    component: LocationTableComponent,
   },
   { path: '**', redirectTo: 'page-not-found', pathMatch: 'full' },
 ];

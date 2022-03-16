@@ -20,13 +20,13 @@ import { MainNavComponent } from './main-nav/main-nav.component';
 import { AngularMaterialModule } from './shared/angular-material/angular-material.module';
 import { LanguageSelectorComponent } from './language-selector/language-selector.component';
 import { registerLocaleData } from '@angular/common';
-import { LocationListComponent } from './location-list/location-list.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DeleteDialogComponent } from './shared/delete-dialog/delete-dialog.component';
 import { FormDialogComponent } from './shared/form-dialog/form-dialog.component';
 import { CreateTableDataComponent } from './create-table-data/create-table-data.component';
+import { LocationTableComponent } from './location-table/location-table.component';
 
 export function localeInitializer(translate: TranslateService) {
   return async () => {
@@ -50,7 +50,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     HeaderComponent,
     MainNavComponent,
     LanguageSelectorComponent,
-    LocationListComponent,
+    LocationTableComponent,
     DeleteDialogComponent,
     FormDialogComponent,
     CreateTableDataComponent,
