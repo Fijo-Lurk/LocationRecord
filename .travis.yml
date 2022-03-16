@@ -20,4 +20,4 @@ install:
   - cd frontend && npm install
   
 script:
-  - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
+  - cd frontend && ng test
