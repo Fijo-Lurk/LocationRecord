@@ -2,7 +2,7 @@ import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { TranslateService } from '@ngx-translate/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { LocationData } from 'src/app/location-list/location-data';
+import { LocationData } from 'src/app/location-table/location-data';
 
 @Component({
   selector: 'app-delete-dialog',
