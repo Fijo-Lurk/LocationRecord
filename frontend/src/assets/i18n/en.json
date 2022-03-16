@@ -23,7 +23,8 @@
     "genericOkText": "OK",
     "genericSaveText": "Save",
     "genericClearText": "Clear",
-    "genericCreateText": "Create"
+    "genericCreateText": "Create",
+    "genericCloseText": "Close"
   },
   "dialog": {
     "genericConfirmActionTitle": "Warning",
