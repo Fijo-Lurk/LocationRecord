@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { TranslateService } from '@ngx-translate/core';
 import { DeleteDialogComponent } from '../shared/delete-dialog/delete-dialog.component';
@@ -56,6 +57,34 @@ const ELEMENT_DATA: LocationData[] = [
     app_id: 'com.smithmicro.work',
     studio_url: 'H876',
   },
+  {
+    id: 8,
+    customer_id: 'cust123',
+    environment: 'dev',
+    app_id: 'com.smithmicro.work',
+    studio_url: 'H876',
+  },
+  {
+    id: 9,
+    customer_id: 'cust123',
+    environment: 'dev',
+    app_id: 'com.smithmicro.work',
+    studio_url: 'H876',
+  },
+  {
+    id: 10,
+    customer_id: 'cust123',
+    environment: 'dev',
+    app_id: 'com.smithmicro.work',
+    studio_url: 'H876',
+  },
+  {
+    id: 11,
+    customer_id: 'cust123',
+    environment: 'dev',
+    app_id: 'com.smithmicro.work',
+    studio_url: 'H876',
+  },
 ];
 
 @Component({
@@ -79,6 +108,12 @@ export class LocationListComponent {
 
   columnsToDisplay: string[] = this.displayedColumns.slice();
   dataSource = new MatTableDataSource(ELEMENT_DATA);
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
 
   editColumn(element: LocationData) {
     console.log('edit column with id of', element.id);
@@ -107,5 +142,8 @@ export class LocationListComponent {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 }
