@@ -1,4 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslateModule } from '@ngx-translate/core';
+import { AngularMaterialModule } from '../shared/angular-material/angular-material.module';
 
 import { LanguageSelectorComponent } from './language-selector.component';
 
@@ -8,9 +12,14 @@ describe('LanguageSelectorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LanguageSelectorComponent ]
-    })
-    .compileComponents();
+      declarations: [LanguageSelectorComponent],
+      imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AngularMaterialModule,
+        TranslateModule.forRoot(),
+      ],
+    }).compileComponents();
   });
 
   beforeEach(() => {
