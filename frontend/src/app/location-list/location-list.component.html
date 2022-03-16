@@ -20,7 +20,15 @@
       <th class="table-w-20" mat-header-cell *matHeaderCellDef>
         {{ "locationList.customerId" | translate }}
       </th>
-      <td mat-cell *matCellDef="let element">{{ element.customer_id }}</td>
+      <td
+        [matTooltip]="element.customer_id"
+        matTooltipPosition="after"
+        class="truncate-cell"
+        mat-cell
+        *matCellDef="let element"
+      >
+        {{ element.customer_id }}
+      </td>
     </ng-container>
 
     <!-- Environment -->
@@ -28,7 +36,15 @@
       <th class="table-w-20" mat-header-cell *matHeaderCellDef>
         {{ "locationList.environment" | translate }}
       </th>
-      <td mat-cell *matCellDef="let element">{{ element.environment }}</td>
+      <td
+        [matTooltip]="element.environment"
+        matTooltipPosition="before"
+        class="truncate-cell"
+        mat-cell
+        *matCellDef="let element"
+      >
+        {{ element.environment }}
+      </td>
     </ng-container>
 
     <!-- App_id -->
@@ -36,7 +52,15 @@
       <th class="table-w-20" mat-header-cell *matHeaderCellDef>
         {{ "locationList.appId" | translate }}
       </th>
-      <td mat-cell *matCellDef="let element">{{ element.app_id }}</td>
+      <td
+        [matTooltip]="element.app_id"
+        matTooltipPosition="before"
+        class="truncate-cell"
+        mat-cell
+        *matCellDef="let element"
+      >
+        {{ element.app_id }}
+      </td>
     </ng-container>
 
     <!-- Studio_url -->
@@ -44,7 +68,15 @@
       <th class="table-w-20" mat-header-cell *matHeaderCellDef>
         {{ "locationList.studioUrl" | translate }}
       </th>
-      <td mat-cell *matCellDef="let element">{{ element.studio_url }}</td>
+      <td
+        [matTooltip]="element.studio_url"
+        matTooltipPosition="before"
+        class="truncate-cell"
+        mat-cell
+        *matCellDef="let element"
+      >
+        {{ element.studio_url }}
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="option">
