@@ -4,10 +4,6 @@ dist: trusty
 node_js:
   - '12'
 
-before_install:
-  - export CHROME_BIN=google-chrome-stable
-
-
 addons:
   chrome: stable
   sources:
