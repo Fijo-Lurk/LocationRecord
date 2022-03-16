@@ -7,6 +7,7 @@ branches:
 before_script:
   - npm install -g @angular/cli
 script:
+  - cd frontend
   - npm install
   - npm run build
   - npm run test -- --watch=false --no-progress --browsers=ChromeHeadlessNoSandbox
