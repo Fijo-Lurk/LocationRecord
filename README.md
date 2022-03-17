@@ -21,7 +21,7 @@ The goal of the project is to create a complete application with a limited numbe
   $ npm run start:frontend
   ```
 
-- Install and run backend
+- Install and run server
   ```sh
   $ cd backend
   $ npm install
