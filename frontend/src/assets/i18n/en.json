@@ -7,9 +7,9 @@
     "noData": " No data matching the filter",
     "deleteColumn": "Delete",
     "editColumn": "Edit",
-    "customerId": "Customer id",
+    "customerId": "Customer ID",
     "environment": "Environment",
-    "appId": "App id",
+    "appId": "Application ID",
     "studioUrl": "Studio url"
   },
 
