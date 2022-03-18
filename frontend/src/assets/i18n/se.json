@@ -7,9 +7,9 @@
     "noData": " Inga data matchar filtret",
     "deleteColumn": "Ta bort",
     "editColumn": "Uppdatera",
-    "customerId": "Kundnummer",
+    "customerId": "Kund-ID",
     "environment": "Miljö",
-    "appId": "Applikation id",
+    "appId": "Applikations-ID",
     "studioUrl": "Studio url"
   },
   "button": {
