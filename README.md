@@ -26,7 +26,7 @@ The goal of the project is to create a complete application with a limited numbe
   $ cd backend
   $ npm install
   $ cd ../
-  $ npm run start:backend
+  $ npm run start:server
   ```
 
 ## Technologies & Frameworks
