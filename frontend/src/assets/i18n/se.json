@@ -9,7 +9,7 @@
     "editColumn": "Uppdatera",
     "customerId": "Kundnummer",
     "environment": "Miljö",
-    "appId": "App-id",
+    "appId": "Applikation id",
     "studioUrl": "Studio url"
   },
   "button": {

@@ -20,13 +20,7 @@
       <th class="table-w-20" mat-header-cell *matHeaderCellDef>
         {{ "locationList.customerId" | translate }}
       </th>
-      <td
-        [matTooltip]="element.customer_id"
-        matTooltipPosition="after"
-        class="truncate-cell"
-        mat-cell
-        *matCellDef="let element"
-      >
+      <td class="truncate-cell" mat-cell *matCellDef="let element">
         {{ element.customer_id }}
       </td>
     </ng-container>
@@ -36,13 +30,7 @@
       <th class="table-w-20" mat-header-cell *matHeaderCellDef>
         {{ "locationList.environment" | translate }}
       </th>
-      <td
-        [matTooltip]="element.environment"
-        matTooltipPosition="before"
-        class="truncate-cell"
-        mat-cell
-        *matCellDef="let element"
-      >
+      <td class="truncate-cell" mat-cell *matCellDef="let element">
         {{ element.environment }}
       </td>
     </ng-container>
@@ -52,13 +40,7 @@
       <th class="table-w-20" mat-header-cell *matHeaderCellDef>
         {{ "locationList.appId" | translate }}
       </th>
-      <td
-        [matTooltip]="element.app_id"
-        matTooltipPosition="before"
-        class="truncate-cell"
-        mat-cell
-        *matCellDef="let element"
-      >
+      <td class="truncate-cell" mat-cell *matCellDef="let element">
         {{ element.app_id }}
       </td>
     </ng-container>
