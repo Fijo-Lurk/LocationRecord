@@ -1,7 +1,8 @@
 {
   "scripts": {
     "start:server": "cd server && npm run start:dev",
-    "start:frontend": "cd frontend && ng serve --open"
+    "start:frontend": "cd frontend && ng serve",
+    "build:frontend": "cd frontend && npm run build"
   },
   "dependencies": {}
 }

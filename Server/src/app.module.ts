@@ -10,6 +10,9 @@ import configuration from 'config/configuration';
 
 @Module({
   imports: [
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'frontend'),
+    }),
     TypeOrmModule.forRoot(config),
     LocationModule,
     ConfigModule.forRoot({
