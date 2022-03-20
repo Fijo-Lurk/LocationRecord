@@ -1,17 +1,21 @@
+import { join } from 'path';
+
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { ServeStaticModule } from '@nestjs/serve-static';
+
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { LocationModule } from './location/location.module';
 import config from 'ormconfig';
-import { Location } from './location/entities/location.entity';
 import { ConfigModule } from '@nestjs/config';
 import configuration from 'config/configuration';
 
 @Module({
   imports: [
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '..', 'frontend'),
+      rootPath: join(__dirname, '..', 'static', 'ui'),
+      serveRoot: '/ui/',
     }),
     TypeOrmModule.forRoot(config),
     LocationModule,
