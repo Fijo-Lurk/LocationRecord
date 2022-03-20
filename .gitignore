@@ -53,4 +53,7 @@ Thumbs.db
 
 # Config Project Files
 config/dist/out-tsc/.gitkeep
+**/*.env
+!config/env/development.env
+
 
