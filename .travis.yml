@@ -2,24 +2,22 @@ language: node_js
 os: linux
 dist: trusty
 node_js:
-  - '14'
+  - "14"
 
 addons:
   chrome: stable
   sources:
-      - google-chrome	    
-  packages:	
-      - dpkg  
-      - google-chrome-stable
+    - google-chrome
+  packages:
+    - dpkg
+    - google-chrome-stable
 
 cache:
   directories:
     - ./node_modules
-    
 
- 
 install:
-  - cd frontend && npm install
-  
+  - cd ui && npm install
+
 script:
   - npm run test

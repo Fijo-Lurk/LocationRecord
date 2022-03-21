@@ -12,10 +12,10 @@ The goal of the project is to create a complete application with a limited numbe
   $ git clone https://github.com/Fijo-Lurk/LocationRecord.git
   ```
 
-## Installation
+## Setup
 
 ```bash
-$ npm run install
+$ npm run install && npm run build
 ```
 
 ## Running the App
