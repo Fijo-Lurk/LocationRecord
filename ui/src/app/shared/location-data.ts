@@ -1,7 +1,6 @@
 export interface LocationData {
-  id: number;
+  app_id: string;
   environment: string;
   customer_id: string;
-  app_id: string;
-  studio_url: string;
+  studio_url?: string;
 }
