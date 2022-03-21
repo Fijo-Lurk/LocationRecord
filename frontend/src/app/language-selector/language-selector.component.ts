@@ -8,10 +8,10 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class LanguageSelectorComponent implements OnInit {
   menuItems = [
-    { lang: 'EN', icon: '../../assets/img/us.svg', i18n: 'en' },
-    { lang: 'SE', icon: '../../assets/img/se.svg', i18n: 'se' },
+    { lang: 'EN', icon: '/ui/assets/img/us.svg', i18n: 'en' },
+    { lang: 'SE', icon: '/ui/assets/img/se.svg', i18n: 'se' },
   ];
-  selectedValue = { lang: 'EN', icon: '../../assets/img/us.svg', i18n: 'en' };
+  selectedValue = { lang: 'EN', icon: '/ui/assets/img/us.svg', i18n: 'en' };
 
   constructor(public translateService: TranslateService) {}
 
