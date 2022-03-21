@@ -1,10 +1,15 @@
 {
   "scripts": {
     "start:server": "cd server && npm run start:dev",
-    "start:frontend": "cd frontend && ng serve",
-    "build:frontend": "cd frontend && npm run build",
+    "start:ui": "cd ui && ng serve",
+    "build:ui": "cd ui && npm run build",
     "build:server": "cd server && npm run build",
-    "build": "npm run build:server && npm run build:frontend"
+    "build": "npm run build:server && npm run build:ui",
+    "install:ui": "cd ui && npm install",
+    "install:server": "cd server && npm install",
+    "install": "npm run install:server && npm run install:ui",
+    "env:development": "cd server/config/env && cp -v template.env development.env",
+    "env:production": "cd server/config/env && cp -v template.env production.env"
   },
   "dependencies": {}
 }
