@@ -12,22 +12,27 @@ The goal of the project is to create a complete application with a limited numbe
   $ git clone https://github.com/Fijo-Lurk/LocationRecord.git
   ```
 
-- Install and run frontend
+## Installation
 
-  ```sh
-  $ cd frontend
-  $ npm install
-  $ cd ../
-  $ npm run start:frontend
-  ```
+```bash
+$ npm run install
+```
 
-- Install and run server
-  ```sh
-  $ cd backend
-  $ npm install
-  $ cd ../
-  $ npm run start:server
-  ```
+## Running the App
+
+```bash
+
+# create development env and start in watch mode
+$ npm run env:development
+$ NODE_ENV=development npm run start:server
+
+# create prod env and start in production mode
+$ npm run env:production
+$ NODE_ENV=production npm run start:prod
+
+$ npm run build
+
+```
 
 ## Technologies & Frameworks
 
@@ -46,4 +51,3 @@ The goal of the project is to create a complete application with a limited numbe
 ### Server
 
 - [sqlite](https://www.sqlite.org/index.html)
-
