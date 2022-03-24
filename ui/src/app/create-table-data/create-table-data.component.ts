@@ -6,8 +6,11 @@ import {
   FormGroupDirective,
 } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { TranslateService } from '@ngx-translate/core';
+import { LocationService } from '../shared/service/location.service';
 
+@UntilDestroy()
 @Component({
   selector: 'app-create-table-data',
   templateUrl: './create-table-data.component.html',
@@ -17,15 +20,16 @@ export class CreateTableDataComponent implements OnInit {
   environment = ['dev', 'test', 'staging', 'prod'];
   showForm = false;
   tableForm = new FormGroup({
-    customerId: new FormControl('', [Validators.required]),
+    customer_id: new FormControl('', [Validators.required]),
     environment: new FormControl('', [Validators.required]),
-    appId: new FormControl(''),
-    studioUrl: new FormControl('', [Validators.required]),
+    app_id: new FormControl(''),
+    studio_url: new FormControl('', [Validators.required]),
   });
 
   constructor(
     private snackBar: MatSnackBar,
-    public translateService: TranslateService
+    public translateService: TranslateService,
+    private locationService: LocationService
   ) {}
 
   ngOnInit(): void {}
@@ -35,6 +39,10 @@ export class CreateTableDataComponent implements OnInit {
   }
 
   public onSubmit(form: FormGroupDirective) {
+    this.locationService
+      .create(form.value)
+      .pipe(untilDestroyed(this))
+      .subscribe();
     this.showForm = false;
     this.tableForm.reset();
     this.snackBar.open(

@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,6 +18,7 @@ describe('LocationListComponent', () => {
         BrowserModule,
         BrowserAnimationsModule,
         AngularMaterialModule,
+        HttpClientModule,
         TranslateModule.forRoot(),
       ],
     }).compileComponents();

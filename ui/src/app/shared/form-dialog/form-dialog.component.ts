@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
-import { LocationData } from 'src/app/location-table/location-data';
+import { LocationData } from 'src/app/shared/location-data';
 import {
   FormControl,
   FormGroup,
@@ -9,6 +9,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
+import { LocationService } from '../service/location.service';
 
 @Component({
   selector: 'app-form-dialog',
@@ -30,12 +31,13 @@ export class FormDialogComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: LocationData,
-    public translateService: TranslateService
+    public translateService: TranslateService,
+    private locationService: LocationService
   ) {}
 
   ngOnInit(): void {}
 
   onSubmit(form?: FormGroupDirective) {
-    console.log(form?.value);
+    this.locationService.update(this.data, form.value).subscribe();
   }
 }

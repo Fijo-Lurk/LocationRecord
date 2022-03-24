@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,6 +18,7 @@ describe('CreateTableDataComponent', () => {
       imports: [
         AngularMaterialModule,
         BrowserAnimationsModule,
+        HttpClientModule,
         TranslateModule.forRoot(),
       ],
       providers: [
