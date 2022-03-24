@@ -5,14 +5,14 @@ import { CreateLocationDto } from './dto/create-location.dto';
 import { UpdateLocationDto } from './dto/update-location.dto';
 import { LocationService } from './location.service';
 import {
+  API_PARAM_APP_ID,
   API_PARAM_CUSTOMER_ID,
   API_PARAM_ENVIRONMENT,
-  API_PARAM_APP_ID,
   API_RESPONSE_BAD_REQUEST,
-  API_RESPONSE_NOT_FOUND,
   API_RESPONSE_CONFLICT,
   API_RESPONSE_INTERNAL_SERVER_ERROR,
-} from 'src/constant';
+  API_RESPONSE_NOT_FOUND,
+} from './swagger-docs';
 
 @Controller('location/v1')
 export class LocationController {
