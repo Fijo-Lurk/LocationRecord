@@ -1,4 +1,4 @@
-#tableForm {
+.tableForm {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -15,9 +15,9 @@
   min-width: 100px;
 }
 
-.customerId-field-form,
-.appId-field-form,
-.studioUrl-field-form,
+.customer-id-field-form,
+.app-id-field-form,
+.studio-url-field-form,
 .environment-field-form {
   margin-right: 2rem;
 }
@@ -41,7 +41,7 @@
 }
 
 @media (max-width: 425px) {
-  #tableForm {
+  .tableForm {
     justify-content: left;
     margin: 0rem 0rem 0.5rem 1rem;
   }
