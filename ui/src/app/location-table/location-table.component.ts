@@ -36,8 +36,13 @@ export class LocationTableComponent implements OnInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
+
   ngOnInit(): void {
     this.locationService.findAll().subscribe((location: LocationData[]) => {
+      location.forEach((location) => {
+        location.environment =
+          location.environment[0].toUpperCase() + location.environment.slice(1);
+      });
       this.data = location;
       this.dataSource.data = location;
     });
