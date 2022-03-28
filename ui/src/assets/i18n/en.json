@@ -2,6 +2,7 @@
   "SE": "Swedish",
   "EN": "English",
   "search": "Search",
+  "exampleUrl": "https://example.com",
 
   "locationList": {
     "noData": " No data matching the filter",
@@ -25,10 +26,13 @@
   "dialog": {
     "genericConfirmActionTitle": "Warning",
     "specificDeleteMessage": "Are you sure you want to delete",
-    "genericWarningOnDeleteMessage": "You can't undo this action"
+    "genericWarningOnDeleteMessage": "You can't undo this action",
+    "genericErrorDialogRetryButtonText": "Retry",
+    "genericServicerError": "An unknown error has occurred!"
   },
   "form": {
     "genericFormFieldRequiredErrorMessage": "Is required.",
-    "genericeFormSuccessfulCompleted": "Form was submitted!"
+    "genericeFormSuccessfulCompleted": "Form was submitted!",
+    "studiUrlErrorMessage": "Studio url must be a valid URL"
   }
 }

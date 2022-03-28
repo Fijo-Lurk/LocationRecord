@@ -1,0 +1,22 @@
+<h1 mat-dialog-title *ngIf="data.code >= 500">
+  {{ "genericErrorDialogTitle" | translate }}
+</h1>
+<div mat-dialog-content>
+  <p id="message" [innerHTML]="toSafeHtml(data.message)"></p>
+  <div *ngIf="data.debug && !data.retry">
+    <p id="debug">{{ data.debug }}</p>
+  </div>
+</div>
+<div class="actions" mat-dialog-actions>
+  <button *ngIf="!data.retry" mat-raised-button color="accent" mat-dialog-close>
+    {{ "button.genericOkText" | translate }}
+  </button>
+  <button
+    *ngIf="data.retry"
+    mat-raised-button
+    color="accent"
+    (click)="onRetry()"
+  >
+    {{ "genericErrorDialogRetryButtonText" | translate }}
+  </button>
+</div>

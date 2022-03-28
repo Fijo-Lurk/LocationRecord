@@ -26,7 +26,12 @@ export class FormDialogComponent implements OnInit {
     customer_id: new FormControl(this.data.customer_id, [Validators.required]),
     environment: new FormControl(this.data.environment, [Validators.required]),
     app_id: new FormControl(this.data.app_id),
-    studio_url: new FormControl(this.data.studio_url, [Validators.required]),
+    studio_url: new FormControl(this.data.studio_url, [
+      Validators.required,
+      Validators.pattern(
+        '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?'
+      ),
+    ]),
   });
   constructor(
     @Inject(MAT_DIALOG_DATA)

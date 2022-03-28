@@ -1,4 +1,4 @@
-#tableForm {
+#locationForm {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -41,7 +41,7 @@
 }
 
 @media (max-width: 425px) {
-  #tableForm {
+  #locationForm {
     justify-content: left;
     margin: 0rem 0rem 0.5rem 1rem;
   }
