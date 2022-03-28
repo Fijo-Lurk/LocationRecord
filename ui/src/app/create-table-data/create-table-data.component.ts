@@ -40,7 +40,6 @@ export class CreateTableDataComponent implements OnInit {
 
   public onSubmit(form: FormGroupDirective) {
     form.value.environment = form.value.environment.toLowerCase();
-    console.log(form.value);
     this.locationService
       .create(form.value)
       .pipe(untilDestroyed(this))
