@@ -40,6 +40,10 @@ export class LocationTableComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.findAndUpdate();
+  }
+
+  findAndUpdate() {
     this.locationService.findAll().subscribe((location: LocationData[]) => {
       location.forEach((location) => {
         location.environment =
@@ -56,15 +60,12 @@ export class LocationTableComponent implements OnInit {
         data: element,
       })
       .afterClosed()
+      .pipe(untilDestroyed(this))
       .subscribe((isEditDone) => {
         if (isEditDone) {
-          this.locationService
-            .findAll()
-            .pipe(untilDestroyed(this))
-            .subscribe((value: LocationData[]) => {
-              this.dataSource.data = value;
-            });
+          this.findAndUpdate();
         }
+        return;
       });
   }
 
