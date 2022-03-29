@@ -19,11 +19,16 @@ import { LocationService } from '../shared/service/location.service';
 export class CreateTableDataComponent implements OnInit {
   environment = ['Production', 'Staging', 'Development', 'Sandbox1'];
   showForm = false;
-  tableForm = new FormGroup({
+  locationForm = new FormGroup({
     customer_id: new FormControl('', [Validators.required]),
     environment: new FormControl('', [Validators.required]),
     app_id: new FormControl(''),
-    studio_url: new FormControl('', [Validators.required]),
+    studio_url: new FormControl('', [
+      Validators.required,
+      Validators.pattern(
+        '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?'
+      ),
+    ]),
   });
 
   constructor(
@@ -43,20 +48,21 @@ export class CreateTableDataComponent implements OnInit {
     this.locationService
       .create(form.value)
       .pipe(untilDestroyed(this))
-      .subscribe();
+      .subscribe((_) => {
+        this.snackBar.open(
+          this.translateService.instant('form.genericeFormSuccessfulCompleted'),
+          '',
+          {
+            duration: 2000,
+            panelClass: ['green-snackbar'],
+          }
+        );
+      });
     this.showForm = false;
-    this.tableForm.reset();
-    this.snackBar.open(
-      this.translateService.instant('form.genericeFormSuccessfulCompleted'),
-      '',
-      {
-        duration: 2000,
-        panelClass: ['green-snackbar'],
-      }
-    );
+    this.locationForm.reset();
   }
 
   public onClear(): void {
-    this.tableForm.reset();
+    this.locationForm.reset();
   }
 }

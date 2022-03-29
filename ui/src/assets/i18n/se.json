@@ -2,6 +2,7 @@
   "SE": "Svenska",
   "EN": "Engelska",
   "search": "Sök",
+  "exampleUrl": "https://exempel.com",
 
   "locationList": {
     "noData": " Inga data matchar filtret",
@@ -24,10 +25,13 @@
   "dialog": {
     "genericConfirmActionDialogTitle": "Varning",
     "specificDeleteMessage": "Är du säker att du vill radera",
-    "genericWarningOnDeleteMessage": "Du kan inte ångra den här åtgärden"
+    "genericWarningOnDeleteMessage": "Du kan inte ångra den här åtgärden",
+    "genericErrorDialogRetryButtonText": "Försök igen",
+    "genericServerError": "Ett okänt fel har uppstått!"
   },
   "form": {
     "genericFormFieldRequiredErrorMessage": "Fältet är obligatoriskt.",
-    "genericeFormSuccessfulCompleted": "Formulären skickades in!"
+    "genericeFormSuccessfulCompleted": "Formulären skickades in!",
+    "studiUrlErrorMessage": "Studio url måste vara en URL-adress"
   }
 }

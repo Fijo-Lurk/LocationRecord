@@ -9,7 +9,11 @@ import localeEs from '@angular/common/locales/es';
 import localeEsExtra from '@angular/common/locales/extra/es';
 import localeSv from '@angular/common/locales/sv';
 import localeSvExtra from '@angular/common/locales/extra/sv';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+} from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -27,6 +31,8 @@ import { DeleteDialogComponent } from './shared/delete-dialog/delete-dialog.comp
 import { FormDialogComponent } from './shared/form-dialog/form-dialog.component';
 import { CreateTableDataComponent } from './create-table-data/create-table-data.component';
 import { LocationTableComponent } from './location-table/location-table.component';
+import { ErrorInterceptor } from './error.interceptor';
+import { ErrorComponent } from './shared/error/error.component';
 
 export function localeInitializer(translate: TranslateService) {
   return async () => {
@@ -57,6 +63,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     DeleteDialogComponent,
     FormDialogComponent,
     CreateTableDataComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,6 +90,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
       useFactory: localeInitializer,
       multi: true,
     },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })
