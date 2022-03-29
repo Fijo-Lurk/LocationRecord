@@ -17,6 +17,10 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./location-table.component.scss'],
 })
 export class LocationTableComponent implements OnInit {
+  currentLang = this.translateService.currentLang;
+  intlCollator = new Intl.Collator(this.currentLang, {
+    usage: 'sort',
+  });
   displayedColumns: string[] = [
     'customer_id',
     'environment',
@@ -49,6 +53,15 @@ export class LocationTableComponent implements OnInit {
         location.environment =
           location.environment[0].toUpperCase() + location.environment.slice(1);
       });
+      location.sort((a, b) => {
+        return (
+          this.compare(a.customer_id, b.customer_id) ||
+          this.compare(a.environment, b.environment)
+        );
+      });
+      location.sort((a, b) =>
+        this.intlCollator.compare(a.customer_id, b.customer_id)
+      );
       this.data = location;
       this.dataSource.data = location;
     });
@@ -95,5 +108,11 @@ export class LocationTableComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  compare(a: any, b: any) {
+    if (a > b) return +1;
+    if (a < b) return -1;
+    return 0;
   }
 }
