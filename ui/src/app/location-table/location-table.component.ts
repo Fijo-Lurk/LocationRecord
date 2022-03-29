@@ -8,6 +8,7 @@ import { DeleteDialogComponent } from '../shared/delete-dialog/delete-dialog.com
 import { FormDialogComponent } from '../shared/form-dialog/form-dialog.component';
 import { LocationService } from '../shared/service/location.service';
 import { LocationData } from '../shared/location-data';
+import { Subscription } from 'rxjs';
 
 @UntilDestroy()
 @Component({
@@ -16,11 +17,6 @@ import { LocationData } from '../shared/location-data';
   styleUrls: ['./location-table.component.scss'],
 })
 export class LocationTableComponent implements OnInit {
-  constructor(
-    public translateService: TranslateService,
-    public dialog: MatDialog,
-    private locationService: LocationService
-  ) {}
   displayedColumns: string[] = [
     'customer_id',
     'environment',
@@ -32,6 +28,12 @@ export class LocationTableComponent implements OnInit {
   columnsToDisplay: string[] = this.displayedColumns.slice();
   dataSource = new MatTableDataSource(this.data);
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  constructor(
+    public translateService: TranslateService,
+    public dialog: MatDialog,
+    private locationService: LocationService
+  ) {}
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;

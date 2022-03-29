@@ -1,3 +1,7 @@
+<h1 class="header-text" align="start">
+  {{ "form.editLocationMessage" | translate }}
+</h1>
+
 <form
   id="apps-form"
   [formGroup]="locationForm"
@@ -69,7 +73,7 @@
       "form.genericFormFieldRequiredErrorMessage" | translate
     }}</mat-error>
     <mat-error *ngIf="locationForm.controls['studio_url'].errors?.pattern">{{
-      "form.studiUrlErrorMessage" | translate
+      "form.studioUrlErrorMessage" | translate
     }}</mat-error>
   </mat-form-field>
 </form>
