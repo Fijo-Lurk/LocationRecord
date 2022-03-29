@@ -11,7 +11,7 @@ export class LocationService {
   apiUrl: string = environment.apiUrl;
 
   httpOptions = new HttpHeaders({
-    'x-api-key': environment.apiKey,
+    'X-Api-Access-Key': environment.apiKey,
     'content-type': 'application/json',
   });
 
