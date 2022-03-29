@@ -33,7 +33,7 @@
     floatLabel="always"
   >
     <mat-label>{{ "locationList.environment" | translate }}</mat-label>
-    <mat-select formControlName="environment" [(value)]="selectedEnvironment">
+    <mat-select [value]="data.environment" formControlName="environment">
       <mat-option [value]="option" *ngFor="let option of environment">{{
         option
       }}</mat-option>
