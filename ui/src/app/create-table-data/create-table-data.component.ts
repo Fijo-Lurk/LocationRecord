@@ -17,7 +17,7 @@ import { LocationService } from '../shared/service/location.service';
   styleUrls: ['./create-table-data.component.scss'],
 })
 export class CreateTableDataComponent implements OnInit {
-  environment = ['dev', 'test', 'staging', 'prod'];
+  environment = ['Production', 'Staging', 'Development', 'Sandbox1'];
   showForm = false;
   tableForm = new FormGroup({
     customer_id: new FormControl('', [Validators.required]),
@@ -39,6 +39,7 @@ export class CreateTableDataComponent implements OnInit {
   }
 
   public onSubmit(form: FormGroupDirective) {
+    form.value.environment = form.value.environment.toLowerCase();
     this.locationService
       .create(form.value)
       .pipe(untilDestroyed(this))

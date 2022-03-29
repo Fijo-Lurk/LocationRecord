@@ -19,7 +19,7 @@ import { LocationService } from '../service/location.service';
 export class FormDialogComponent implements OnInit {
   @ViewChild('update', { static: false }) okButton!: MatButton;
   @ViewChild('cancel', { static: false }) cancelButton!: MatButton;
-  environment = ['dev', 'test', 'staging', 'prod'];
+  environment = ['Production', 'Staging', 'Development', 'Sandbox1'];
   selectedEnvironment = this.data.environment;
 
   public locationForm = new FormGroup({
@@ -38,6 +38,7 @@ export class FormDialogComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(form?: FormGroupDirective) {
+    form.value.environment = form.value.environment.toLowerCase();
     this.locationService.update(this.data, form.value).subscribe();
   }
 }
