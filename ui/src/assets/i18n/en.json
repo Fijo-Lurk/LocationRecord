@@ -32,7 +32,8 @@
   },
   "form": {
     "genericFormFieldRequiredErrorMessage": "Is required.",
-    "genericeFormSuccessfulCompleted": "Form was submitted!",
-    "studiUrlErrorMessage": "Studio url must be a valid URL"
+    "genericeFormSuccessfulCompleted": "successfully submitted!",
+    "studioUrlErrorMessage": "Studio url must be a valid URL",
+    "editLocationMessage": "Edit location"
   }
 }

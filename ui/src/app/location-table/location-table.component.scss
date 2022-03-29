@@ -4,10 +4,9 @@ table {
 
 .search-filter {
   border-radius: 10px;
-  margin-bottom: 30px;
+  margin-top: 30px;
   display: flex;
   align-items: center;
-  background-color: rgba(196, 196, 196, 0.18);
 }
 .mat-form-field {
   font-size: 14px;
@@ -75,4 +74,10 @@ td.mat-footer-cell:first-of-type {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+@media (max-width: 425px) {
+  th {
+    font-size: 0.7rem;
+  }
 }
