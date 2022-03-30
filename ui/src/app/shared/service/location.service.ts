@@ -11,7 +11,7 @@ export class LocationService {
   apiUrl: string = environment.apiUrl;
 
   httpOptions = new HttpHeaders({
-    'x-api-key': environment.apiKey,
+    'X-Api-Access-Key': environment.apiKey,
     'content-type': 'application/json',
   });
 
@@ -19,11 +19,14 @@ export class LocationService {
 
   create(params: LocationData) {
     let API_URL = `${this.apiUrl}/customer/${params.customer_id}/environment/${params.environment}/app/${params.app_id}`;
-    return this.http.post<LocationData>(API_URL, params, {
-      headers: this.httpOptions,
-    });
+    return this.http.post<LocationData>(
+      API_URL,
+      { studio_url: params.studio_url },
+      {
+        headers: this.httpOptions,
+      }
+    );
   }
-
   findAll() {
     return this.http.get(`${this.apiUrl}`);
   }
@@ -33,12 +36,15 @@ export class LocationService {
     return this.http.get(API_URL, { headers: this.httpOptions });
   }
 
-  update(params: LocationData, newLocation: LocationData): Observable<any> {
+  update(params: LocationData, newLocation: string): Observable<any> {
     let API_URL = `${this.apiUrl}/customer/${params.customer_id}/environment/${params.environment}/app/${params.app_id}`;
-    return this.http.patch(API_URL, newLocation, { headers: this.httpOptions });
+    return this.http.patch(API_URL, newLocation, {
+      headers: this.httpOptions,
+    });
   }
 
   delete(params: LocationData): Observable<any> {
+    console.log(params);
     let API_URL = `${this.apiUrl}/customer/${params.customer_id}/environment/${params.environment}/app/${params.app_id}`;
     return this.http.delete(API_URL, { headers: this.httpOptions });
   }

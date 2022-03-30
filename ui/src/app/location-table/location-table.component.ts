@@ -9,6 +9,7 @@ import { FormDialogComponent } from '../shared/form-dialog/form-dialog.component
 import { LocationService } from '../shared/service/location.service';
 import { LocationData } from '../shared/location-data';
 import { Subscription } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @UntilDestroy()
 @Component({
@@ -36,7 +37,8 @@ export class LocationTableComponent implements OnInit {
   constructor(
     public translateService: TranslateService,
     public dialog: MatDialog,
-    private locationService: LocationService
+    private locationService: LocationService,
+    private snackBar: MatSnackBar
   ) {}
 
   ngAfterViewInit() {
@@ -77,12 +79,23 @@ export class LocationTableComponent implements OnInit {
       .subscribe((isEditDone) => {
         if (isEditDone) {
           this.findAndUpdate();
+          this.snackBar.open(
+            this.translateService.instant(
+              'form.genericeFormSuccessfulCompleted'
+            ),
+            '',
+            {
+              duration: 2000,
+              panelClass: ['green-snackbar'],
+            }
+          );
         }
         return;
       });
   }
 
   deleteColumn(element: LocationData) {
+    element.environment = element.environment.toLowerCase();
     this.dialog
       .open(DeleteDialogComponent, {
         data: { value: element.customer_id },

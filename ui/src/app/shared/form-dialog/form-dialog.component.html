@@ -14,53 +14,6 @@
     appearance="outline"
     floatLabel="always"
   >
-    <mat-label>{{ "locationList.customerId" | translate }}</mat-label>
-    <input
-      type="text"
-      matInput
-      formControlName="customer_id"
-      autocomplete="off"
-      required
-    />
-    <mat-error *ngIf="locationForm.controls['customer_id'].errors?.required">{{
-      "form.genericFormFieldRequiredErrorMessage" | translate
-    }}</mat-error>
-  </mat-form-field>
-  <mat-form-field
-    class="custom-field-form"
-    color="primary"
-    appearance="outline"
-    floatLabel="always"
-  >
-    <mat-label>{{ "locationList.environment" | translate }}</mat-label>
-    <mat-select [value]="data.environment" formControlName="environment">
-      <mat-option [value]="option" *ngFor="let option of environment">{{
-        option
-      }}</mat-option>
-    </mat-select>
-
-    <mat-error *ngIf="locationForm.controls['environment'].errors?.required">{{
-      "form.genericFormFieldRequiredErrorMessage" | translate
-    }}</mat-error>
-  </mat-form-field>
-  <mat-form-field
-    class="custom-field-form"
-    color="primary"
-    appearance="outline"
-    floatLabel="always"
-  >
-    <mat-label>{{ "locationList.appId" | translate }}</mat-label>
-    <input type="text" matInput formControlName="app_id" autocomplete="off" />
-    <mat-error *ngIf="locationForm.controls['app_id'].errors?.required">{{
-      "form.genericFormFieldRequiredErrorMessage" | translate
-    }}</mat-error>
-  </mat-form-field>
-  <mat-form-field
-    class="custom-field-form"
-    color="primary"
-    appearance="outline"
-    floatLabel="always"
-  >
     <mat-label>{{ "locationList.studioUrl" | translate }}</mat-label>
     <input
       type="text"
