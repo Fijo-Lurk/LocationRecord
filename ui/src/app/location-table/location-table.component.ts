@@ -31,6 +31,7 @@ export class LocationTableComponent implements OnInit {
   data: LocationData[] = [];
   columnsToDisplay: string[] = this.displayedColumns.slice();
   dataSource = new MatTableDataSource(this.data);
+  isLoadingResults = true;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
@@ -64,6 +65,7 @@ export class LocationTableComponent implements OnInit {
       );
       this.data = location;
       this.dataSource.data = location;
+      this.isLoadingResults = false;
     });
   }
 
