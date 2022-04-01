@@ -48,7 +48,9 @@ export class CreateTableDataComponent implements OnInit {
     this.locationService
       .create(form.value)
       .pipe(untilDestroyed(this))
-      .subscribe((_) => {
+      .subscribe((value) => {
+        this.locationService.locations =
+          this.locationService.locations.concat(value);
         this.snackBar.open(
           this.translateService.instant('form.genericeFormSuccessfulCompleted'),
           '',

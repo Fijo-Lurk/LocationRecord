@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -9,13 +9,26 @@ import { LocationData } from 'src/app/shared/location-data';
 })
 export class LocationService {
   apiUrl: string = environment.apiUrl;
-
+  locations$: Observable<LocationData[]>;
+  private _locations$: BehaviorSubject<LocationData[]>;
   httpOptions = new HttpHeaders({
     'X-Api-Access-Key': environment.apiKey,
     'content-type': 'application/json',
   });
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    this._locations$ = new BehaviorSubject<LocationData[]>([]);
+    this.locations$ = this._locations$.asObservable();
+  }
+
+  get locations(): LocationData[] {
+    return this._locations$.getValue();
+  }
+
+  set locations(nextLocation: LocationData[]) {
+    console.log(nextLocation, 'nextLocation');
+    this._locations$.next(nextLocation);
+  }
 
   create(params: LocationData) {
     let API_URL = `${this.apiUrl}/customer/${params.customer_id}/environment/${params.environment}/app/${params.app_id}`;

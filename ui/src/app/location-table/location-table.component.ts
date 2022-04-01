@@ -29,6 +29,7 @@ export class LocationTableComponent implements OnInit {
     'studio_url',
     'option',
   ];
+
   data: LocationData[] = [];
   columnsToDisplay: string[] = this.displayedColumns.slice();
   dataSource = new MatTableDataSource(this.data);
@@ -47,6 +48,13 @@ export class LocationTableComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.locationService.locations$.subscribe((locations) => {
+      this.findAndUpdate();
+      locations.forEach((location) => {
+        console.log(location);
+        this.data.push(location);
+      });
+    });
     this.findAndUpdate();
   }
 
