@@ -25,9 +25,6 @@ export class FormDialogComponent implements OnInit {
   selectedEnvironment = this.data.environment;
 
   public locationForm = new FormGroup({
-    customer_id: new FormControl(this.data.customer_id, [Validators.required]),
-    environment: new FormControl(this.data.environment, [Validators.required]),
-    app_id: new FormControl(this.data.app_id),
     studio_url: new FormControl(this.data.studio_url, [
       Validators.required,
       Validators.pattern(
@@ -50,7 +47,6 @@ export class FormDialogComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(form: FormGroupDirective) {
-    form.value.environment = form.value.environment.toLowerCase();
     this.data.environment = this.data.environment.toLowerCase();
     this.locationService
       .update(this.data, form.value)

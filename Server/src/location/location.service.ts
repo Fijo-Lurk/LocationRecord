@@ -42,11 +42,10 @@ export class LocationService {
       );
     }
   }
-
-  async update(customer_id: string, environment: string, app_id: string, newLocation: UpdateLocationDto) {
+  async update(customer_id: string, environment: string, app_id: string, item: UpdateLocationDto): Promise<Location> {
     const location = await this.getOne(customer_id, environment, app_id);
-    const updatedLocation = await this.locationsRepository.update({ ...location }, { ...newLocation });
-    return updatedLocation;
+    const updatedEntity = await this.locationsRepository.save({ ...location, ...item });
+    return updatedEntity;
   }
 
   async delete(customer_id: string, environment: string, app_id: string): Promise<Location> {
