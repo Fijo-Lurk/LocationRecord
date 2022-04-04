@@ -22,7 +22,7 @@ export class CreateTableDataComponent implements OnInit {
   locationForm = new FormGroup({
     customer_id: new FormControl('', [Validators.required]),
     environment: new FormControl('', [Validators.required]),
-    app_id: new FormControl(''),
+    app_id: new FormControl('', [Validators.required]),
     studio_url: new FormControl('', [
       Validators.required,
       Validators.pattern(
