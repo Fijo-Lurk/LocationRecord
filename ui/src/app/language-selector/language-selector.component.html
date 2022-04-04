@@ -16,7 +16,7 @@
   <mat-selection-list [multiple]="false">
     <mat-list-option
       [value]="item.lang"
-      (click)="changelang(item.lang, item.icon, item.i18n)"
+      (click)="changelang(item)"
       *ngFor="let item of menuItems"
       [class]="item?.lang === selectedValue.lang ? 'selected' : null"
     >

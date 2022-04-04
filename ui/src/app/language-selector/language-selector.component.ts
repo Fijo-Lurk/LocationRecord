@@ -21,9 +21,9 @@ export class LanguageSelectorComponent implements OnInit {
     }
   }
 
-  changelang(lang: string, icon: string, i18n: string) {
-    this.selectedValue = { lang: lang, icon: icon, i18n: i18n };
-    this.translateService.use(i18n);
-    localStorage.setItem('i18n', i18n);
+  changelang(item: any) {
+    this.selectedValue = { ...item };
+    this.translateService.use(item.i18n);
+    localStorage.setItem('i18n', item.i18n);
   }
 }
