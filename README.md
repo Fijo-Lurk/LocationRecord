@@ -40,7 +40,6 @@ $ npm run build
 
 - [Angular 13](https://angular.io/)
 - [Angular material](https://material.angular.io/)
-- [Auth0](https://auth0.com/)
 
 ### Backend
 
