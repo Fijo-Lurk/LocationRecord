@@ -8,7 +8,6 @@ import { DeleteDialogComponent } from '../shared/delete-dialog/delete-dialog.com
 import { FormDialogComponent } from '../shared/form-dialog/form-dialog.component';
 import { LocationService } from '../shared/service/location.service';
 import { LocationData } from '../shared/location-data';
-import { Subscription } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @UntilDestroy()

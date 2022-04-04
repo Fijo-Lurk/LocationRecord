@@ -26,7 +26,6 @@ export class LocationService {
   }
 
   set locations(nextLocation: LocationData[]) {
-    console.log(nextLocation, 'nextLocation');
     this._locations$.next(nextLocation);
   }
 
