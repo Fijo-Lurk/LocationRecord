@@ -8,7 +8,6 @@ import { DeleteDialogComponent } from '../shared/delete-dialog/delete-dialog.com
 import { FormDialogComponent } from '../shared/form-dialog/form-dialog.component';
 import { LocationService } from '../shared/service/location.service';
 import { LocationData } from '../shared/location-data';
-import { Subscription } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @UntilDestroy()
@@ -29,6 +28,7 @@ export class LocationTableComponent implements OnInit {
     'studio_url',
     'option',
   ];
+
   data: LocationData[] = [];
   columnsToDisplay: string[] = this.displayedColumns.slice();
   dataSource = new MatTableDataSource(this.data);
@@ -47,6 +47,13 @@ export class LocationTableComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.locationService.locations$.subscribe((locations) => {
+      this.findAndUpdate();
+      locations.forEach((location) => {
+        console.log(location);
+        this.data.push(location);
+      });
+    });
     this.findAndUpdate();
   }
 
