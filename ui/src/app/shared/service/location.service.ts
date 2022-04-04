@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
-
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
+
 import { environment } from 'src/environments/environment';
 import { LocationData } from 'src/app/shared/location-data';
+
 @Injectable({
   providedIn: 'root',
 })

@@ -1,7 +1,4 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { TranslateService } from '@ngx-translate/core';
-import { LocationData } from 'src/app/shared/location-data';
 import {
   FormControl,
   FormGroup,
@@ -9,8 +6,11 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
-import { LocationService } from '../service/location.service';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { TranslateService } from '@ngx-translate/core';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+
+import { LocationService } from '../service/location.service';
 
 @UntilDestroy()
 @Component({

@@ -2,13 +2,15 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { TranslateService } from '@ngx-translate/core';
+
 import { DeleteDialogComponent } from '../shared/delete-dialog/delete-dialog.component';
 import { FormDialogComponent } from '../shared/form-dialog/form-dialog.component';
 import { LocationService } from '../shared/service/location.service';
 import { LocationData } from '../shared/location-data';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @UntilDestroy()
 @Component({
