@@ -29,10 +29,10 @@ export class CreateTableDataComponent implements OnInit {
   public appIdSuggestions: Observable<string[]>;
 
   locationForm = new FormGroup({
-    customer_id: new FormControl('', [Validators.required]),
+    customerId: new FormControl('', [Validators.required]),
     environment: new FormControl('', [Validators.required]),
-    app_id: new FormControl('', [Validators.required]),
-    studio_url: new FormControl('', [
+    appId: new FormControl('', [Validators.required]),
+    studioUrl: new FormControl('', [
       Validators.required,
       Validators.pattern(
         '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?'
@@ -47,7 +47,7 @@ export class CreateTableDataComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.appIdSuggestions = this.locationForm.get('app_id').valueChanges.pipe(
+    this.appIdSuggestions = this.locationForm.get('appId').valueChanges.pipe(
       startWith(''),
       map((value) =>
         value
@@ -58,7 +58,7 @@ export class CreateTableDataComponent implements OnInit {
       )
     );
     this.locationService.findAll().subscribe((locations: LocationData[]) => {
-      const uniqueAppId = new Set(locations.map((location) => location.app_id));
+      const uniqueAppId = new Set(locations.map((location) => location.appId));
       this.appIdNames = Array.from(uniqueAppId);
     });
   }
@@ -68,6 +68,7 @@ export class CreateTableDataComponent implements OnInit {
   }
 
   public onSubmit(form: FormGroupDirective) {
+    console.log(form.value);
     form.value.environment = form.value.environment.toLowerCase();
     this.locationService
       .create(form.value)

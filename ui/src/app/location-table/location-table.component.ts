@@ -24,10 +24,10 @@ export class LocationTableComponent implements OnInit {
     usage: 'sort',
   });
   displayedColumns: string[] = [
-    'customer_id',
+    'customerId',
     'environment',
-    'app_id',
-    'studio_url',
+    'appId',
+    'studioUrl',
     'option',
   ];
 
@@ -52,11 +52,9 @@ export class LocationTableComponent implements OnInit {
     this.locationService.locations$.subscribe((locations) => {
       this.findAndUpdate();
       locations.forEach((location) => {
-        console.log(location);
         this.data.push(location);
       });
     });
-    this.findAndUpdate();
   }
 
   findAndUpdate() {
@@ -67,12 +65,12 @@ export class LocationTableComponent implements OnInit {
       });
       location.sort((a, b) => {
         return (
-          this.compare(a.customer_id, b.customer_id) ||
+          this.compare(a.customerId, b.customerId) ||
           this.compare(a.environment, b.environment)
         );
       });
       location.sort((a, b) =>
-        this.intlCollator.compare(a.customer_id, b.customer_id)
+        this.intlCollator.compare(a.customerId, b.customerId)
       );
       this.data = location;
       this.dataSource.data = location;
@@ -109,7 +107,7 @@ export class LocationTableComponent implements OnInit {
     element.environment = element.environment.toLowerCase();
     this.dialog
       .open(DeleteDialogComponent, {
-        data: { value: element.customer_id },
+        data: { value: element.customerId },
         minWidth: '30vw',
       })
       .afterClosed()
@@ -118,7 +116,7 @@ export class LocationTableComponent implements OnInit {
         if (deleted) {
           this.locationService.delete(element).subscribe(() => {
             const filterArr = this.dataSource.data.filter(
-              (data) => data.customer_id !== element.customer_id
+              (data) => data.customerId !== element.customerId
             );
             this.dataSource.data = filterArr;
           });

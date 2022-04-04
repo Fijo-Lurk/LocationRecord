@@ -10,3 +10,8 @@ mat-toolbar {
 mat-toolbar-row {
   height: var(--header-height);
 }
+
+.version {
+  padding-left: 0.5rem;
+  font-size: 0.8rem;
+}

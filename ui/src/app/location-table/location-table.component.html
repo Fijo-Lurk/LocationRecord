@@ -21,12 +21,12 @@
   </div>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <!-- Customer_id -->
-    <ng-container matColumnDef="customer_id">
+    <ng-container matColumnDef="customerId">
       <th class="table-w-20" mat-header-cell *matHeaderCellDef>
         {{ "locationList.customerId" | translate }}
       </th>
       <td class="truncate-cell" mat-cell *matCellDef="let element">
-        {{ element.customer_id }}
+        {{ element.customerId }}
       </td>
     </ng-container>
 
@@ -41,28 +41,28 @@
     </ng-container>
 
     <!-- App_id -->
-    <ng-container matColumnDef="app_id">
+    <ng-container matColumnDef="appId">
       <th class="table-w-20" mat-header-cell *matHeaderCellDef>
         {{ "locationList.appId" | translate }}
       </th>
       <td class="truncate-cell" mat-cell *matCellDef="let element">
-        {{ element.app_id }}
+        {{ element.appId }}
       </td>
     </ng-container>
 
     <!-- Studio_url -->
-    <ng-container matColumnDef="studio_url">
+    <ng-container matColumnDef="studioUrl">
       <th class="table-w-20" mat-header-cell *matHeaderCellDef>
         {{ "locationList.studioUrl" | translate }}
       </th>
       <td
-        [matTooltip]="element.studio_url"
+        [matTooltip]="element.studioUrl"
         matTooltipPosition="before"
         class="truncate-cell"
         mat-cell
         *matCellDef="let element"
       >
-        {{ element.studio_url }}
+        {{ element.studioUrl }}
       </td>
     </ng-container>
 

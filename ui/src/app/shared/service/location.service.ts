@@ -31,10 +31,10 @@ export class LocationService {
   }
 
   create(params: LocationData) {
-    let API_URL = `${this.apiUrl}/customer/${params.customer_id}/environment/${params.environment}/app/${params.app_id}`;
+    let API_URL = `${this.apiUrl}/customer/${params.customerId}/environment/${params.environment}/app/${params.appId}`;
     return this.http.post<LocationData>(
       API_URL,
-      { studio_url: params.studio_url },
+      { studioUrl: params.studioUrl },
       {
         headers: this.httpOptions,
       }
@@ -45,20 +45,19 @@ export class LocationService {
   }
 
   findOne(params: LocationData) {
-    let API_URL = `${this.apiUrl}/customer/${params.customer_id}/environment/${params.environment}/app/${params.app_id}`;
+    let API_URL = `${this.apiUrl}/customer/${params.customerId}/environment/${params.environment}/app/${params.appId}`;
     return this.http.get(API_URL, { headers: this.httpOptions });
   }
 
   update(params: LocationData, newLocation: string): Observable<any> {
-    let API_URL = `${this.apiUrl}/customer/${params.customer_id}/environment/${params.environment}/app/${params.app_id}`;
+    let API_URL = `${this.apiUrl}/customer/${params.customerId}/environment/${params.environment}/app/${params.appId}`;
     return this.http.patch(API_URL, newLocation, {
       headers: this.httpOptions,
     });
   }
 
   delete(params: LocationData): Observable<any> {
-    console.log(params);
-    let API_URL = `${this.apiUrl}/customer/${params.customer_id}/environment/${params.environment}/app/${params.app_id}`;
+    let API_URL = `${this.apiUrl}/customer/${params.customerId}/environment/${params.environment}/app/${params.appId}`;
     return this.http.delete(API_URL, { headers: this.httpOptions });
   }
 }

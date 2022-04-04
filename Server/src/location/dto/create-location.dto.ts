@@ -9,5 +9,5 @@ export class CreateLocationDto {
     example: 'https://viewspot-home-MyFirstID.smithmicro.io',
     minimum: 1,
   })
-  studio_url: string;
+  studioUrl: string;
 }
