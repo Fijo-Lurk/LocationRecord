@@ -1,5 +1,5 @@
 const API_PARAM_CUSTOMER_ID = {
-  name: 'customer_id',
+  name: 'customerId',
   description: 'Unique customer identifier',
   example: 'MyFirstID',
 };
@@ -9,7 +9,7 @@ const API_PARAM_ENVIRONMENT = {
   example: 'dev',
 };
 const API_PARAM_APP_ID = {
-  name: 'app_id',
+  name: 'appId',
   description: 'Platform specific application identifier',
   example: 'com.smithmicro.viewspot',
 };

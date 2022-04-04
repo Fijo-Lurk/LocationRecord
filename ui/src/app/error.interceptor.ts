@@ -24,23 +24,19 @@ export class ErrorInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(
       catchError((httpError: HttpErrorResponse) => {
         if (httpError.status === 401) {
-          return throwError(httpError);
+          throwError(httpError);
         } else if (httpError.status === 404) {
-          return throwError(httpError);
+          throwError(httpError);
         } else if (httpError.status === 409) {
-          return throwError(httpError);
+          throwError(httpError);
         } else if (httpError.status === 409) {
-          return throwError(httpError);
+          throwError(httpError);
         }
         const retry = httpError.status >= 500 || httpError.status === 0;
         if (!this.errorDialog) {
           this.errorDialog = this.dialog.open(ErrorComponent, {
             data: {
-              message: httpError.statusText,
-              debug:
-                httpError.error && httpError.error.error
-                  ? JSON.stringify(httpError.error.message[0], null)
-                  : undefined,
+              message: httpError.error.message,
               code: httpError.status,
               url: httpError.url,
               body: request.body,

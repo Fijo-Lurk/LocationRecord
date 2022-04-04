@@ -2,10 +2,7 @@
   {{ "dialog.genericServicerError" | translate }}
 </h1>
 <div mat-dialog-content>
-  <p id="message" [innerHTML]="toSafeHtml(data.message)"></p>
-  <div *ngIf="data.debug && !data.retry">
-    <p id="debug">{{ data.debug }}</p>
-  </div>
+  <p id="message">{{ data.message }}</p>
 </div>
 <div class="actions" mat-dialog-actions>
   <button *ngIf="!data.retry" mat-raised-button color="accent" mat-dialog-close>

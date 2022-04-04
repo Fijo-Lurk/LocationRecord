@@ -18,14 +18,14 @@
     <input
       type="text"
       matInput
-      formControlName="studio_url"
+      formControlName="studioUrl"
       autocomplete="off"
       required
     />
-    <mat-error *ngIf="locationForm.controls['studio_url'].errors?.required">{{
+    <mat-error *ngIf="locationForm.controls['studioUrl'].errors?.required">{{
       "form.genericFormFieldRequiredErrorMessage" | translate
     }}</mat-error>
-    <mat-error *ngIf="locationForm.controls['studio_url'].errors?.pattern">{{
+    <mat-error *ngIf="locationForm.controls['studioUrl'].errors?.pattern">{{
       "form.studioUrlErrorMessage" | translate
     }}</mat-error>
   </mat-form-field>

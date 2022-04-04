@@ -40,12 +40,12 @@
     <input
       type="text"
       matInput
-      formControlName="customer_id"
+      formControlName="customerId"
       autocomplete="off"
       required
       placeholder="{{ 'locationList.customerId' | translate }}"
     />
-    <mat-error *ngIf="locationForm.controls['customer_id'].errors?.required">{{
+    <mat-error *ngIf="locationForm.controls['customerId'].errors?.required">{{
       "form.genericFormFieldRequiredErrorMessage" | translate
     }}</mat-error>
   </mat-form-field>
@@ -79,7 +79,7 @@
     <input
       type="text"
       matInput
-      formControlName="app_id"
+      formControlName="appId"
       [matAutocomplete]="auto"
       required
       placeholder="{{ 'locationList.appId' | translate }}"
@@ -92,7 +92,7 @@
         <span>{{ appId }}</span>
       </mat-option>
     </mat-autocomplete>
-    <mat-error *ngIf="locationForm.controls['app_id'].errors?.required">{{
+    <mat-error *ngIf="locationForm.controls['appId'].errors?.required">{{
       "form.genericFormFieldRequiredErrorMessage" | translate
     }}</mat-error>
   </mat-form-field>
@@ -106,15 +106,15 @@
     <input
       type="url"
       matInput
-      formControlName="studio_url"
+      formControlName="studioUrl"
       autocomplete="off"
       required
       placeholder="{{ 'exampleUrl' | translate }}"
     />
-    <mat-error *ngIf="locationForm.controls['studio_url'].errors?.required">{{
+    <mat-error *ngIf="locationForm.controls['studioUrl'].errors?.required">{{
       "form.genericFormFieldRequiredErrorMessage" | translate
     }}</mat-error>
-    <mat-error *ngIf="locationForm.controls['studio_url'].errors?.pattern">{{
+    <mat-error *ngIf="locationForm.controls['studioUrl'].errors?.pattern">{{
       "form.studioUrlErrorMessage" | translate
     }}</mat-error>
   </mat-form-field>

@@ -3,14 +3,14 @@ import { Column, Entity, PrimaryColumn } from 'typeorm';
 @Entity()
 export class Location {
   @PrimaryColumn()
-  customer_id: string;
+  customerId: string;
 
   @PrimaryColumn()
   environment: string;
 
   @PrimaryColumn()
-  app_id: string;
+  appId: string;
 
   @Column()
-  studio_url: string;
+  studioUrl: string;
 }

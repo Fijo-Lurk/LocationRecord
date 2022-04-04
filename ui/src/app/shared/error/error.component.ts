@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -17,24 +16,20 @@ export class ErrorComponent {
     @Inject(MAT_DIALOG_DATA)
     public data: {
       message: string;
-      debug: string;
       code: number;
       retry: boolean;
       url: string;
       body: any;
-    },
-    private sanitizer: DomSanitizer
-  ) {}
+    }
+  ) {
+    console.log(data.message);
+  }
 
   onRetry() {
     this.http
-      .get<{ message: string }>(this.data.url, this.data.body.studio_url)
+      .get<{ message: string }>(this.data.url, this.data.body.studioUrl)
       .subscribe(() => {
         this.dialogRef.close();
       });
-  }
-
-  toSafeHtml(html: string): SafeHtml {
-    return this.sanitizer.bypassSecurityTrustHtml(html);
   }
 }

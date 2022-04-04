@@ -18,7 +18,7 @@ import {
 export class LocationController {
   constructor(private readonly locationService: LocationService) {}
 
-  @Post('customer/:customer_id/environment/:environment/app/:app_id')
+  @Post('customer/:customerId/environment/:environment/app/:appId')
   @ApiParam(API_PARAM_CUSTOMER_ID)
   @ApiParam(API_PARAM_ENVIRONMENT)
   @ApiParam(API_PARAM_APP_ID)
@@ -27,10 +27,10 @@ export class LocationController {
     description: 'The record has been successfully created.',
     schema: {
       default: {
-        customer_id: 'MyFirstID',
+        customerId: 'MyFirstID',
         environment: 'dev',
-        app_id: 'com.smithmicro.viewspot',
-        studio_url: 'https://viewspot-home-MyFirstID.smithmicro.io',
+        appId: 'com.smithmicro.viewspot',
+        studioUrl: 'https://viewspot-home-MyFirstID.smithmicro.io',
       },
     },
   })
@@ -38,12 +38,12 @@ export class LocationController {
   @ApiResponse(API_RESPONSE_CONFLICT)
   @ApiResponse(API_RESPONSE_INTERNAL_SERVER_ERROR)
   async create(
-    @Param('customer_id') customer_id: string,
+    @Param('customerId') customerId: string,
     @Param('environment') environment: string,
-    @Param('app_id') app_id: string,
+    @Param('appId') appId: string,
     @Body(new ValidationPipe()) createLocationDto: CreateLocationDto,
   ) {
-    const createdLocation = this.locationService.create(customer_id, environment, app_id, createLocationDto.studio_url);
+    const createdLocation = this.locationService.create(customerId, environment, appId, createLocationDto.studioUrl);
     return createdLocation;
   }
 
@@ -53,10 +53,10 @@ export class LocationController {
     schema: {
       default: [
         {
-          customer_id: 'MyFirstID',
+          customerId: 'MyFirstID',
           environment: 'dev',
-          app_id: 'com.smithmicro.viewspot',
-          studio_url: 'https://viewspot-home-MyFirstID.smithmicro.io',
+          appId: 'com.smithmicro.viewspot',
+          studioUrl: 'https://viewspot-home-MyFirstID.smithmicro.io',
         },
       ],
     },
@@ -74,39 +74,39 @@ export class LocationController {
     description: 'The record has been successfully created.',
     schema: {
       default: {
-        customer_id: 'MyFirstID',
+        customerId: 'MyFirstID',
         environment: 'dev',
-        app_id: 'com.smithmicro.viewspot',
-        studio_url: 'https://viewspot-home-MyFirstID.smithmicro.io',
+        appId: 'com.smithmicro.viewspot',
+        studioUrl: 'https://viewspot-home-MyFirstID.smithmicro.io',
       },
     },
   })
   @ApiResponse(API_RESPONSE_BAD_REQUEST)
   @ApiResponse(API_RESPONSE_CONFLICT)
   @ApiResponse(API_RESPONSE_INTERNAL_SERVER_ERROR)
-  @Get('customer/:customer_id/environment/:environment/app/:app_id')
+  @Get('customer/:customerId/environment/:environment/app/:appId')
   @ApiResponse({
     status: 200,
     schema: {
       default: [
         {
-          customer_id: 'MyFirstID',
+          customerId: 'MyFirstID',
           environment: 'dev',
-          app_id: 'com.smithmicro.viewspot',
+          appId: 'com.smithmicro.viewspot',
         },
       ],
     },
   })
   async getOne(
-    @Param('customer_id') customer_id: string,
+    @Param('customerId') customerId: string,
     @Param('environment') environment: string,
-    @Param('app_id') app_id: string,
+    @Param('appId') appId: string,
   ) {
-    const location = await this.locationService.getOne(customer_id, environment, app_id);
+    const location = await this.locationService.getOne(customerId, environment, appId);
     return location;
   }
 
-  @Patch('customer/:customer_id/environment/:environment/app/:app_id')
+  @Patch('customer/:customerId/environment/:environment/app/:appId')
   @ApiResponse(API_RESPONSE_CONFLICT)
   @ApiParam(API_PARAM_CUSTOMER_ID)
   @ApiParam(API_PARAM_ENVIRONMENT)
@@ -116,10 +116,10 @@ export class LocationController {
     description: 'Record updated successfully.',
     schema: {
       default: {
-        customer_id: 'MyFirstID',
+        customerId: 'MyFirstID',
         environment: 'dev',
-        app_id: 'com.smithmicro.viewspot',
-        studio_url: 'https://viewspot-home-MyFirstID.smithmicro.io',
+        appId: 'com.smithmicro.viewspot',
+        studioUrl: 'https://viewspot-home-MyFirstID.smithmicro.io',
       },
     },
   })
@@ -127,16 +127,16 @@ export class LocationController {
   @ApiResponse(API_RESPONSE_NOT_FOUND)
   @ApiResponse(API_RESPONSE_INTERNAL_SERVER_ERROR)
   async update(
-    @Param('customer_id') customer_id: string,
+    @Param('customerId') customerId: string,
     @Param('environment') environment: string,
-    @Param('app_id') app_id: string,
+    @Param('appId') appId: string,
     @Body(new ValidationPipe()) updateLocationDto: UpdateLocationDto,
   ) {
-    const updatedLocation = await this.locationService.update(customer_id, environment, app_id, updateLocationDto);
+    const updatedLocation = await this.locationService.update(customerId, environment, appId, updateLocationDto);
     return updatedLocation;
   }
 
-  @Delete('customer/:customer_id/environment/:environment/app/:app_id')
+  @Delete('customer/:customerId/environment/:environment/app/:appId')
   @ApiParam(API_PARAM_CUSTOMER_ID)
   @ApiParam(API_PARAM_ENVIRONMENT)
   @ApiParam(API_PARAM_APP_ID)
@@ -145,10 +145,10 @@ export class LocationController {
     description: 'Record successfully deleted.',
     schema: {
       default: {
-        customer_id: 'MyFirstID',
+        customerId: 'MyFirstID',
         environment: 'dev',
-        app_id: 'com.smithmicro.viewspot',
-        studio_url: 'https://viewspot-home-MyFirstID.smithmicro.io',
+        appId: 'com.smithmicro.viewspot',
+        studioUrl: 'https://viewspot-home-MyFirstID.smithmicro.io',
       },
     },
   })
@@ -156,11 +156,11 @@ export class LocationController {
   @ApiResponse(API_RESPONSE_NOT_FOUND)
   @ApiResponse(API_RESPONSE_INTERNAL_SERVER_ERROR)
   async remove(
-    @Param('customer_id') customer_id: string,
+    @Param('customerId') customerId: string,
     @Param('environment') environment: string,
-    @Param('app_id') app_id: string,
+    @Param('appId') appId: string,
   ) {
-    const deletedLocation = await this.locationService.delete(customer_id, environment, app_id);
+    const deletedLocation = await this.locationService.delete(customerId, environment, appId);
     return deletedLocation;
   }
 }
