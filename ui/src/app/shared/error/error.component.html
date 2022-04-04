@@ -17,6 +17,9 @@
     color="accent"
     (click)="onRetry()"
   >
-    {{ "button.genericErrorDialogRetryButtonText" | translate }}
+    {{ "dialog.genericErrorDialogRetryButtonText" | translate }}
+  </button>
+  <button mat-button color="primary" [mat-dialog-close]="false">
+    {{ "button.genericCancelText" | translate }}
   </button>
 </div>

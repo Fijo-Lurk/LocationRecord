@@ -80,10 +80,18 @@
       type="text"
       matInput
       formControlName="app_id"
-      autocomplete="off"
+      [matAutocomplete]="auto"
+      required
       placeholder="{{ 'locationList.appId' | translate }}"
     />
-
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option
+        *ngFor="let appId of appIdSuggestions | async"
+        [value]="appId"
+      >
+        <span>{{ appId }}</span>
+      </mat-option>
+    </mat-autocomplete>
     <mat-error *ngIf="locationForm.controls['app_id'].errors?.required">{{
       "form.genericFormFieldRequiredErrorMessage" | translate
     }}</mat-error>

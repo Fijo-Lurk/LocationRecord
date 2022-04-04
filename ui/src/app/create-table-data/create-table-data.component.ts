@@ -8,6 +8,9 @@ import {
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { TranslateService } from '@ngx-translate/core';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+import { LocationData } from '../shared/location-data';
 import { LocationService } from '../shared/service/location.service';
 
 @UntilDestroy()
@@ -19,6 +22,10 @@ import { LocationService } from '../shared/service/location.service';
 export class CreateTableDataComponent implements OnInit {
   environment = ['Production', 'Staging', 'Development', 'Sandbox1'];
   showForm = false;
+  appIds: string[] = [];
+  private appIdNames: string[] = [];
+  public appIdSuggestions: Observable<string[]>;
+
   locationForm = new FormGroup({
     customer_id: new FormControl('', [Validators.required]),
     environment: new FormControl('', [Validators.required]),
@@ -37,7 +44,22 @@ export class CreateTableDataComponent implements OnInit {
     private locationService: LocationService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.appIdSuggestions = this.locationForm.get('app_id').valueChanges.pipe(
+      startWith(''),
+      map((value) =>
+        value
+          ? this.appIdNames.filter((appId) =>
+              appId.toLowerCase().includes(value.toLowerCase())
+            )
+          : []
+      )
+    );
+    this.locationService.findAll().subscribe((locations: LocationData[]) => {
+      const uniqueAppId = new Set(locations.map((location) => location.app_id));
+      this.appIdNames = Array.from(uniqueAppId);
+    });
+  }
 
   public getForm(): void {
     this.showForm ? (this.showForm = false) : (this.showForm = true);
