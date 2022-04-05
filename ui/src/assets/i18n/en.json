@@ -30,6 +30,9 @@
     "genericErrorDialogRetryButtonText": "Retry",
     "genericServicerError": "An unknown error has occurred!"
   },
+  "snackBar": {
+    "successfullyDeleteLocation": "Location is deleted"
+  },
   "form": {
     "genericFormFieldRequiredErrorMessage": "Is required.",
     "genericeFormSuccessfulCompleted": "successfully submitted!",

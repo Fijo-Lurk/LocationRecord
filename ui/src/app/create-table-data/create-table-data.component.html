@@ -1,25 +1,20 @@
 <div class="create-container">
   <button
-    *ngIf="!showForm"
     type="button"
-    (click)="getForm()"
+    (click)="showForm ? (showForm = false) : (showForm = true)"
     class="create-btn"
     mat-raised-button
     color="primary"
   >
-    <span class="create-span">+</span>
-    {{ "button.genericCreateText" | translate }}
-  </button>
-  <button
-    *ngIf="showForm"
-    type="button"
-    (click)="getForm()"
-    class="create-btn"
-    mat-raised-button
-    color="primary"
-  >
-    <span class="create-span">-</span>
-    {{ "button.genericCloseText" | translate }}
+    <ng-container *ngIf="!showForm">
+      <span class="create-span">+</span>
+      {{ "button.genericCreateText" | translate }}
+    </ng-container>
+
+    <ng-container *ngIf="showForm">
+      <span class="create-span">-</span>
+      {{ "button.genericCloseText" | translate }}
+    </ng-container>
   </button>
 </div>
 

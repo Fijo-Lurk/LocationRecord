@@ -11,12 +11,10 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { catchError, concatMap, tap } from 'rxjs/operators';
 
 import { ErrorComponent } from './shared/error/error.component';
-import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
   errorDialog: MatDialogRef<ErrorComponent>;
-  API_KEY = environment.apiKey;
 
   constructor(private dialog: MatDialog) {}
 
@@ -26,8 +24,6 @@ export class ErrorInterceptor implements HttpInterceptor {
         if (httpError.status === 401) {
           throwError(httpError);
         } else if (httpError.status === 404) {
-          throwError(httpError);
-        } else if (httpError.status === 409) {
           throwError(httpError);
         } else if (httpError.status === 409) {
           throwError(httpError);
