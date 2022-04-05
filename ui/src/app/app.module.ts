@@ -32,6 +32,7 @@ import { CreateTableDataComponent } from './create-table-data/create-table-data.
 import { LocationTableComponent } from './location-table/location-table.component';
 import { ErrorInterceptor } from './error.interceptor';
 import { ErrorComponent } from './shared/error/error.component';
+import { environment } from 'src/environments/environment';
 
 export function localeInitializer(translate: TranslateService) {
   return async () => {
@@ -73,7 +74,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ReactiveFormsModule,
     MatNativeDateModule,
     TranslateModule.forRoot({
-      defaultLanguage: 'en',
+      defaultLanguage: environment.defaultLanguage,
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,

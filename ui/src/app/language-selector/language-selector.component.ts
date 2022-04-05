@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Language } from './language';
 
 @Component({
   selector: 'app-language-selector',
@@ -21,7 +22,7 @@ export class LanguageSelectorComponent implements OnInit {
     }
   }
 
-  changelang(item: any) {
+  changelang(item: Language) {
     this.selectedValue = { ...item };
     this.translateService.use(item.i18n);
     localStorage.setItem('i18n', item.i18n);

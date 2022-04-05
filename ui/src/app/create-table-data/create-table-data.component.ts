@@ -57,18 +57,18 @@ export class CreateTableDataComponent implements OnInit {
           : []
       )
     );
-    this.locationService.findAll().subscribe((locations: LocationData[]) => {
-      const uniqueAppId = new Set(locations.map((location) => location.appId));
-      this.appIdNames = Array.from(uniqueAppId);
-    });
-  }
-
-  public getForm(): void {
-    this.showForm ? (this.showForm = false) : (this.showForm = true);
+    this.locationService
+      .findAll()
+      .pipe(untilDestroyed(this))
+      .subscribe((locations: LocationData[]) => {
+        const uniqueAppId = new Set(
+          locations.map((location) => location.appId)
+        );
+        this.appIdNames = Array.from(uniqueAppId);
+      });
   }
 
   public onSubmit(form: FormGroupDirective) {
-    console.log(form.value);
     form.value.environment = form.value.environment.toLowerCase();
     this.locationService
       .create(form.value)

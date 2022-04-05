@@ -49,39 +49,41 @@ export class LocationTableComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.locationService.locations$.subscribe((locations) => {
+    this.locationService.locations$.pipe(untilDestroyed(this)).subscribe(() => {
       this.findAndUpdate();
-      locations.forEach((location) => {
-        this.data.push(location);
-      });
     });
   }
 
   findAndUpdate() {
-    this.locationService.findAll().subscribe((location: LocationData[]) => {
-      location.forEach((location) => {
-        location.environment =
-          location.environment[0].toUpperCase() + location.environment.slice(1);
-      });
-      location.sort((a, b) => {
-        return (
-          this.compare(a.customerId, b.customerId) ||
-          this.compare(a.environment, b.environment)
+    this.locationService
+      .findAll()
+      .pipe(untilDestroyed(this))
+      .subscribe((locations: LocationData[]) => {
+        locations.forEach((location) => {
+          location.environment =
+            location.environment[0].toUpperCase() +
+            location.environment.slice(1);
+        });
+        locations.sort((a, b) => {
+          return (
+            this.compare(a.customerId, b.customerId) ||
+            this.compare(a.environment, b.environment)
+          );
+        });
+        locations.sort((a, b) =>
+          this.intlCollator.compare(a.customerId, b.customerId)
         );
+        this.data = locations;
+        this.dataSource.data = locations;
+
+        this.isLoadingResults = false;
       });
-      location.sort((a, b) =>
-        this.intlCollator.compare(a.customerId, b.customerId)
-      );
-      this.data = location;
-      this.dataSource.data = location;
-      this.isLoadingResults = false;
-    });
   }
 
-  editColumn(element: LocationData) {
+  editColumn(location: LocationData) {
     this.dialog
       .open(FormDialogComponent, {
-        data: element,
+        data: location,
       })
       .afterClosed()
       .pipe(untilDestroyed(this))
@@ -114,12 +116,25 @@ export class LocationTableComponent implements OnInit {
       .pipe(untilDestroyed(this))
       .subscribe((deleted) => {
         if (deleted) {
-          this.locationService.delete(element).subscribe(() => {
-            const filterArr = this.dataSource.data.filter(
-              (data) => data.customerId !== element.customerId
-            );
-            this.dataSource.data = filterArr;
-          });
+          this.locationService
+            .delete(element)
+            .pipe(untilDestroyed(this))
+            .subscribe(() => {
+              const filterArr = this.dataSource.data.filter(
+                (data) => data.customerId !== element.customerId
+              );
+              this.dataSource.data = filterArr;
+            });
+          this.snackBar.open(
+            this.translateService.instant(
+              'snackBar.successfullyDeleteLocation'
+            ),
+
+            '',
+            {
+              duration: 2000,
+            }
+          );
         }
       });
   }
@@ -132,7 +147,7 @@ export class LocationTableComponent implements OnInit {
     }
   }
 
-  compare(a: any, b: any) {
+  compare(a: string, b: string) {
     if (a > b) return +1;
     if (a < b) return -1;
     return 0;

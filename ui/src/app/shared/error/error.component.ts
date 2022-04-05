@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { TranslateService } from '@ngx-translate/core';
 
+@UntilDestroy()
 @Component({
   templateUrl: './error.component.html',
 })
@@ -21,13 +23,12 @@ export class ErrorComponent {
       url: string;
       body: any;
     }
-  ) {
-    console.log(data.message);
-  }
+  ) {}
 
   onRetry() {
     this.http
       .get<{ message: string }>(this.data.url, this.data.body.studioUrl)
+      .pipe(untilDestroyed(this))
       .subscribe(() => {
         this.dialogRef.close();
       });

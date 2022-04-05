@@ -7,6 +7,7 @@ export const environment = {
   apiUrl: 'http://localhost:3000/location/v1',
   apiKey: 'ChangeMe',
   supportedLocales: ['en', 'se'],
+  defaultLanguage: 'en',
 };
 /*
  * For easier debugging in development mode, you can import the following file

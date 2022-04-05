@@ -29,6 +29,9 @@
     "genericErrorDialogRetryButtonText": "Försök igen",
     "genericServerError": "Ett okänt fel har uppstått!"
   },
+  "snackBar": {
+    "successfullyDeleteLocation": "Platsen raderades"
+  },
   "form": {
     "genericFormFieldRequiredErrorMessage": "Fältet är obligatoriskt.",
     "genericeFormSuccessfulCompleted": "Formulären skickades in!",

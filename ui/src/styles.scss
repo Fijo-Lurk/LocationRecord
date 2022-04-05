@@ -11,7 +11,7 @@ body {
 }
 
 :root {
-  --header-height: 62px;
+  --header-height: 60px;
   --content-area-size: calc(100vh - var(--header-height));
   --main-area-size: calc(100vh - var(--header-height));
 }
