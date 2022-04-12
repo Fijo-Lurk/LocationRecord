@@ -1,17 +1,18 @@
 {
-  "SE": "Svenska",
-  "EN": "Engelska",
-  "search": "Sök",
-  "exampleUrl": "https://exempel.com",
+  "language": {
+    "SE": "Svenska",
+    "EN": "Engelska"
+  },
 
-  "locationList": {
-    "noData": " Inga data matchar filtret",
+  "locationTable": {
+    "searchNotFound": "Inga Studio-URL-mappningar matchar filtret",
+    "noLocation": "Inga Studio-mappningar hittades. Klicka på Skapa ovan för att registrera en Studio-URL.",
     "deleteColumn": "Ta bort",
     "editColumn": "Uppdatera",
     "customerId": "Kund-ID",
     "environment": "Miljö",
     "appId": "Applikations-ID",
-    "studioUrl": "Studio url"
+    "studioUrl": "Studio-URL"
   },
   "button": {
     "genericDeleteText": "Ta bort",
@@ -30,14 +31,26 @@
     "genericServerError": "Ett okänt fel har uppstått!"
   },
   "snackBar": {
-    "successfullyDeleteLocation": "Platsen raderades"
+    "successfullyDeleteLocation": "Studio-URL-mappning raderad",
+    "formSuccessfullySubmitted": "Studio-URL-mappning sparad"
   },
   "form": {
+    "search": "Sök",
     "genericFormFieldRequiredErrorMessage": "Fältet är obligatoriskt.",
-    "genericeFormSuccessfulCompleted": "Formulären skickades in!",
     "studioUrlErrorMessage": "Studio-URL måste vara en giltig webbadress.",
     "customerIdErrorMessage": "Kan bara innehålla A-Z, a-z, 0-9 och -_.",
     "appIdErrorMessage": "Kan bara innehålla A-Z, a-z, 0-9 och -_.",
-    "editLocationMessage": "Redigera location"
+    "editLocationMessage": "Redigera Studio-URL",
+    "exampleUrl": "https://exempel.com"
+  },
+  "paginator": {
+    "paginatorIntl": {
+      "itemsPerPageLabel": "Artiklar per sida:",
+      "nextPageLabel": "Nästa sida",
+      "previousPageLabel": "Förgående sida",
+      "firstPageLabel": "Första sidan",
+      "lastPageLabel": "Sista sidan"
+    },
+    "of": "av"
   }
 }

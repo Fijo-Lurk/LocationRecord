@@ -21,7 +21,7 @@
       [class]="item?.lang === selectedValue.lang ? 'selected' : null"
     >
       <img mat-list-icon [src]="item.icon" />
-      <div>{{ item.lang | translate }}</div>
+      <div>{{ "language." + item.lang | translate }}</div>
     </mat-list-option>
   </mat-selection-list>
 </mat-menu>

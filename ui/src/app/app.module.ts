@@ -33,6 +33,8 @@ import { LocationTableComponent } from './location-table/location-table.componen
 import { ErrorInterceptor } from './error.interceptor';
 import { ErrorComponent } from './shared/error/error.component';
 import { environment } from 'src/environments/environment';
+import { MatPaginationIntlService } from './location-table/Custom-mat.paginator-intl';
+import { MatPaginatorIntl } from '@angular/material/paginator';
 
 export function localeInitializer(translate: TranslateService) {
   return async () => {
@@ -90,6 +92,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
       multi: true,
     },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: MatPaginatorIntl, useClass: MatPaginationIntlService },
   ],
   bootstrap: [AppComponent],
 })
