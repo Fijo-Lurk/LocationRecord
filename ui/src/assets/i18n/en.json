@@ -1,17 +1,18 @@
 {
-  "SE": "Swedish",
-  "EN": "English",
-  "search": "Search",
-  "exampleUrl": "https://example.com",
+  "language": {
+    "SE": "Swedish",
+    "EN": "English"
+  },
 
-  "locationList": {
-    "noData": " No data matching the filter",
+  "locationTable": {
+    "searchNotFound": "No Studio Location matching the filter",
+    "noLocation": "No Studio Location mappings found. Please press Create above to register a Studio Location URL.",
     "deleteColumn": "Delete",
     "editColumn": "Edit",
     "customerId": "Customer ID",
     "environment": "Environment",
     "appId": "Application ID",
-    "studioUrl": "Studio url"
+    "studioUrl": "Studio URL"
   },
 
   "button": {
@@ -31,14 +32,26 @@
     "genericServicerError": "An unknown error has occurred!"
   },
   "snackBar": {
-    "successfullyDeleteLocation": "Location is deleted"
+    "successfullyDeleteLocation": "Studio Location deleted",
+    "formSuccessfullySubmitted": "Studio Location saved"
   },
   "form": {
+    "search": "Search",
     "genericFormFieldRequiredErrorMessage": "Is required.",
-    "genericeFormSuccessfulCompleted": "successfully submitted!",
-    "studioUrlErrorMessage": "Studio url must be a valid URL",
+    "studioUrlErrorMessage": "Studio URL must be a valid URL.",
     "customerIdErrorMessage": "Can only contain A-Z, a-z, 0-9 and -_.",
     "appIdErrorMessage": "Can only contain A-Z, a-z, 0-9 and -_.",
-    "editLocationMessage": "Edit location"
+    "editLocationMessage": "Edit Studio URL",
+    "exampleUrl": "https://example.com"
+  },
+  "paginator": {
+    "paginatorIntl": {
+      "itemsPerPageLabel": "Items per page:",
+      "nextPageLabel": "Next page",
+      "previousPageLabel": "previous page",
+      "firstPageLabel": "First page",
+      "lastPageLabel": "Last page"
+    },
+    "of": "of"
   }
 }

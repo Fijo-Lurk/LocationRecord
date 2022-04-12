@@ -31,14 +31,14 @@
     appearance="outline"
     floatLabel="always"
   >
-    <mat-label>{{ "locationList.customerId" | translate }}</mat-label>
+    <mat-label>{{ "locationTable.customerId" | translate }}</mat-label>
     <input
       type="text"
       matInput
       formControlName="customerId"
       autocomplete="off"
       required
-      placeholder="{{ 'locationList.customerId' | translate }}"
+      placeholder="{{ 'locationTable.customerId' | translate }}"
     />
     <mat-error *ngIf="locationForm.controls['customerId'].errors?.required">{{
       "form.genericFormFieldRequiredErrorMessage" | translate
@@ -53,9 +53,9 @@
     appearance="outline"
     floatLabel="always"
   >
-    <mat-label>{{ "locationList.environment" | translate }}</mat-label>
+    <mat-label>{{ "locationTable.environment" | translate }}</mat-label>
     <mat-select
-      placeholder="{{ 'locationList.environment' | translate }}"
+      placeholder="{{ 'locationTable.environment' | translate }}"
       formControlName="environment"
     >
       <mat-option [value]="option" *ngFor="let option of environment">{{
@@ -73,14 +73,14 @@
     appearance="outline"
     floatLabel="always"
   >
-    <mat-label>{{ "locationList.appId" | translate }}</mat-label>
+    <mat-label>{{ "locationTable.appId" | translate }}</mat-label>
     <input
       type="text"
       matInput
       formControlName="appId"
       [matAutocomplete]="auto"
       required
-      placeholder="{{ 'locationList.appId' | translate }}"
+      placeholder="{{ 'locationTable.appId' | translate }}"
     />
     <mat-autocomplete #auto="matAutocomplete">
       <mat-option
@@ -103,7 +103,7 @@
     appearance="outline"
     floatLabel="always"
   >
-    <mat-label>{{ "locationList.studioUrl" | translate }}</mat-label>
+    <mat-label>{{ "locationTable.studioUrl" | translate }}</mat-label>
     <input
       type="url"
       matInput

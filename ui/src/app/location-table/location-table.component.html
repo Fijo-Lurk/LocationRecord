@@ -4,7 +4,7 @@
   <mat-form-field appearance="outline">
     <mat-label>
       <mat-icon>search</mat-icon>
-      {{ "search" | translate }}
+      {{ "form.search" | translate }}
     </mat-label>
     <input
       matInput
@@ -23,7 +23,7 @@
     <!-- Customer_id -->
     <ng-container matColumnDef="customerId">
       <th class="table-w-20" mat-header-cell *matHeaderCellDef>
-        {{ "locationList.customerId" | translate }}
+        {{ "locationTable.customerId" | translate }}
       </th>
       <td class="truncate-cell" mat-cell *matCellDef="let element">
         {{ element.customerId }}
@@ -33,7 +33,7 @@
     <!-- Environment -->
     <ng-container matColumnDef="environment">
       <th class="table-w-20" mat-header-cell *matHeaderCellDef>
-        {{ "locationList.environment" | translate }}
+        {{ "locationTable.environment" | translate }}
       </th>
       <td class="truncate-cell" mat-cell *matCellDef="let element">
         {{ element.environment }}
@@ -43,7 +43,7 @@
     <!-- App_id -->
     <ng-container matColumnDef="appId">
       <th class="table-w-20" mat-header-cell *matHeaderCellDef>
-        {{ "locationList.appId" | translate }}
+        {{ "locationTable.appId" | translate }}
       </th>
       <td class="truncate-cell" mat-cell *matCellDef="let element">
         {{ element.appId }}
@@ -53,7 +53,7 @@
     <!-- Studio_url -->
     <ng-container matColumnDef="studioUrl">
       <th class="table-w-20" mat-header-cell *matHeaderCellDef>
-        {{ "locationList.studioUrl" | translate }}
+        {{ "locationTable.studioUrl" | translate }}
       </th>
       <td
         [matTooltip]="element.studioUrl"
@@ -70,13 +70,13 @@
       <th class="table-w-5" mat-header-cell *matHeaderCellDef></th>
       <td class="option" mat-cell *matCellDef="let element">
         <mat-icon
-          matTooltip="{{ 'locationList.deleteColumn' | translate }}"
+          matTooltip="{{ 'locationTable.deleteColumn' | translate }}"
           class="delete-icon"
           (click)="deleteColumn(element)"
           >clear</mat-icon
         >
         <mat-icon
-          matTooltip="{{ 'locationList.editColumn' | translate }}"
+          matTooltip="{{ 'locationTable.editColumn' | translate }}"
           (click)="editColumn(element)"
           class="edit-icon"
           >create</mat-icon
@@ -90,7 +90,12 @@
     <!-- Row shown when there is no matching data. -->
     <tr class="mat-row" *matNoDataRow>
       <td class="mat-cell" colspan="4">
-        {{ "locationList.noData" | translate }} "{{ input.value }}"
+        <ng-container *ngIf="input.value">
+          {{ "locationTable.searchNotFound" | translate }}: "{{ input.value }}"
+        </ng-container>
+        <ng-container *ngIf="!input.value.length">
+          {{ "locationTable.noLocation" | translate }}
+        </ng-container>
       </td>
     </tr>
   </table>
