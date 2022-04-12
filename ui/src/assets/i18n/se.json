@@ -35,7 +35,9 @@
   "form": {
     "genericFormFieldRequiredErrorMessage": "Fältet är obligatoriskt.",
     "genericeFormSuccessfulCompleted": "Formulären skickades in!",
-    "studioUrlErrorMessage": "Studio url must be a valid URL",
+    "studioUrlErrorMessage": "Studio-URL måste vara en giltig webbadress.",
+    "customerIdErrorMessage": "Kan bara innehålla A-Z, a-z, 0-9 och -_.",
+    "appIdErrorMessage": "Kan bara innehålla A-Z, a-z, 0-9 och -_.",
     "editLocationMessage": "Redigera location"
   }
 }

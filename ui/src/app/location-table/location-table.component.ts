@@ -90,16 +90,6 @@ export class LocationTableComponent implements OnInit {
       .subscribe((isEditDone) => {
         if (isEditDone) {
           this.findAndUpdate();
-          this.snackBar.open(
-            this.translateService.instant(
-              'form.genericeFormSuccessfulCompleted'
-            ),
-            '',
-            {
-              duration: 2000,
-              panelClass: ['green-snackbar'],
-            }
-          );
         }
         return;
       });
