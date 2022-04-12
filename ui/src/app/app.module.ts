@@ -1,5 +1,6 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatPaginatorIntl } from '@angular/material/paginator';
 import { registerLocaleData } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -33,13 +34,14 @@ import { LocationTableComponent } from './location-table/location-table.componen
 import { ErrorInterceptor } from './error.interceptor';
 import { ErrorComponent } from './shared/error/error.component';
 import { environment } from 'src/environments/environment';
-import { MatPaginationIntlService } from './location-table/Custom-mat.paginator-intl';
-import { MatPaginatorIntl } from '@angular/material/paginator';
+import { MatPaginationIntlService } from './location-table/mat-pagination-intl-service';
 
 export function localeInitializer(translate: TranslateService) {
   return async () => {
     if (localStorage.getItem('i18n') === 'se') {
       translate.use('se');
+    } else {
+      translate.use('en');
     }
     registerLocaleData(localeEs, localeEsExtra);
     registerLocaleData(localeSv, localeSvExtra);

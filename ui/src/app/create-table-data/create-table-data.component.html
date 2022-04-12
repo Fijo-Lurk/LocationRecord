@@ -119,7 +119,9 @@
       "form.studioUrlErrorMessage" | translate
     }}</mat-error>
   </mat-form-field>
+</form>
 
+<div *ngIf="showForm" class="btn-container">
   <button type="reset" mat-button color="primary" (click)="onClear()">
     {{ "button.genericClearText" | translate }}
   </button>
@@ -134,4 +136,4 @@
   >
     {{ "button.genericSaveText" | translate }}
   </button>
-</form>
+</div>
