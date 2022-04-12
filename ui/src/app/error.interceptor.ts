@@ -21,26 +21,19 @@ export class ErrorInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<any> {
     return next.handle(request).pipe(
       catchError((httpError: HttpErrorResponse) => {
-        if (httpError.status === 401) {
-          throwError(httpError);
-        } else if (httpError.status === 404) {
-          throwError(httpError);
-        } else if (httpError.status === 409) {
-          throwError(httpError);
-        }
         const retry = httpError.status >= 500 || httpError.status === 0;
-        if (!this.errorDialog) {
-          this.errorDialog = this.dialog.open(ErrorComponent, {
-            data: {
-              message: httpError.error.message,
-              code: httpError.status,
-              url: httpError.url,
-              body: request.body,
-              retry,
-            },
-            disableClose: true,
-          });
-        }
+        this.errorDialog = this.dialog.open(ErrorComponent, {
+          data: {
+            message: httpError.statusText,
+            debug: httpError.error.message,
+            code: httpError.status,
+            url: httpError.url,
+            body: request.body,
+            retry,
+          },
+          disableClose: true,
+        });
+
         return this.errorDialog.afterClosed().pipe(
           tap(() => (this.errorDialog = undefined)),
           concatMap(() => next.handle(request))

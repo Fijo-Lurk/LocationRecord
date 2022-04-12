@@ -9,7 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './error.component.html',
 })
 export class ErrorComponent {
-  message = this.translateService.instant('dialog.genericServicerError');
+  message = this.translateService.instant('dialog.genericServerError');
 
   constructor(
     private translateService: TranslateService,

@@ -29,7 +29,7 @@
     "specificDeleteMessage": "Are you sure you want to delete",
     "genericWarningOnDeleteMessage": "You can't undo this action",
     "genericErrorDialogRetryButtonText": "Retry",
-    "genericServicerError": "An unknown error has occurred!"
+    "genericServerError": "An unknown error has occurred!"
   },
   "snackBar": {
     "successfullyDeleteLocation": "Studio Location deleted",
