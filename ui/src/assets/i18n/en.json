@@ -37,6 +37,8 @@
     "genericFormFieldRequiredErrorMessage": "Is required.",
     "genericeFormSuccessfulCompleted": "successfully submitted!",
     "studioUrlErrorMessage": "Studio url must be a valid URL",
+    "customerIdErrorMessage": "Can only contain A-Z, a-z, 0-9 and -_.",
+    "appIdErrorMessage": "Can only contain A-Z, a-z, 0-9 and -_.",
     "editLocationMessage": "Edit location"
   }
 }

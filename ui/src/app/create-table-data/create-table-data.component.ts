@@ -4,6 +4,8 @@ import {
   FormControl,
   Validators,
   FormGroupDirective,
+  ValidatorFn,
+  AbstractControl,
 } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -22,21 +24,41 @@ import { LocationService } from '../shared/service/location.service';
   styleUrls: ['./create-table-data.component.scss'],
 })
 export class CreateTableDataComponent implements OnInit {
-  environment = ['Production', 'Staging', 'Development', 'Sandbox1'];
+  environment = ['production', 'staging', 'development', 'sandbox1'];
   showForm = false;
   appIds: string[] = [];
   private appIdNames: string[] = [];
   public appIdSuggestions: Observable<string[]>;
 
+  appIdPattern = /^[a-z][a-z0-9_]*(\.[a-z0-9_]+)+[0-9a-z_]$/i;
+  urlValidator: ValidatorFn = (control: AbstractControl) => {
+    let validUrl = true;
+    try {
+      new URL(control.value);
+    } catch {
+      validUrl = false;
+    }
+    return validUrl ? null : { invalidUrl: true };
+  };
+
+  normalizeUrl(url: string): string {
+    const validUrl = new URL(url);
+    if (validUrl.pathname === '/') {
+      validUrl.pathname = '';
+    }
+    return validUrl.toString();
+  }
   locationForm = new FormGroup({
     customerId: new FormControl('', [Validators.required]),
     environment: new FormControl('', [Validators.required]),
-    appId: new FormControl('', [Validators.required]),
-    studioUrl: new FormControl('', [
+    appId: new FormControl('', [
       Validators.required,
-      Validators.pattern(
-        '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?'
-      ),
+      Validators.pattern(this.appIdPattern),
+    ]),
+    studioUrl: new FormControl('', [
+      this.urlValidator,
+      Validators.required,
+      Validators.pattern('https?://([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?'),
     ]),
   });
 
@@ -47,29 +69,14 @@ export class CreateTableDataComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.appIdSuggestions = this.locationForm.get('appId').valueChanges.pipe(
-      startWith(''),
-      map((value) =>
-        value
-          ? this.appIdNames.filter((appId) =>
-              appId.toLowerCase().includes(value.toLowerCase())
-            )
-          : []
-      )
-    );
-    this.locationService
-      .findAll()
-      .pipe(untilDestroyed(this))
-      .subscribe((locations: LocationData[]) => {
-        const uniqueAppId = new Set(
-          locations.map((location) => location.appId)
-        );
-        this.appIdNames = Array.from(uniqueAppId);
-      });
+    this.applicationSuggestions();
   }
 
   public onSubmit(form: FormGroupDirective) {
-    form.value.environment = form.value.environment.toLowerCase();
+    form.value.studioUrl = this.normalizeUrl(form.value.studioUrl);
+    form.value.appUd = form.value.appId.trim();
+    form.value.customerId = form.value.customerId.trim();
+    form.value.studioUrl = form.value.studioUrl.trim();
     this.locationService
       .create(form.value)
       .pipe(untilDestroyed(this))
@@ -91,5 +98,27 @@ export class CreateTableDataComponent implements OnInit {
 
   public onClear(): void {
     this.locationForm.reset();
+  }
+
+  applicationSuggestions() {
+    this.appIdSuggestions = this.locationForm.get('appId').valueChanges.pipe(
+      startWith(''),
+      map((value) =>
+        value
+          ? this.appIdNames.filter((appId) =>
+              appId.toLowerCase().includes(value.toLowerCase())
+            )
+          : []
+      )
+    );
+    this.locationService
+      .findAll()
+      .pipe(untilDestroyed(this))
+      .subscribe((locations: LocationData[]) => {
+        const uniqueAppId = new Set(
+          locations.map((location) => location.appId)
+        );
+        this.appIdNames = Array.from(uniqueAppId);
+      });
   }
 }
