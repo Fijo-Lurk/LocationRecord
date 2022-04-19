@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryColumn } from 'typeorm';
 
-@Entity()
+@Entity({ name: 'location' })
 export class Location {
   @PrimaryColumn()
   customerId: string;

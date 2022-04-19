@@ -41,7 +41,8 @@
     "customerIdErrorMessage": "Kan bara innehålla A-Z, a-z, 0-9 och -_.",
     "appIdErrorMessage": "Kan bara innehålla A-Z, a-z, 0-9 och -_.",
     "editLocationMessage": "Redigera Studio-URL",
-    "exampleUrl": "https://exempel.com"
+    "exampleUrl": "https://exempel.com",
+    "locationMatchError": "Applikations-ID: {{app_id}} finns redan i miljön: {{environment}} för Kund-ID: {{customer_id}}."
   },
   "paginator": {
     "paginatorIntl": {

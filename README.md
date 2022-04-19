@@ -28,7 +28,7 @@ $ NODE_ENV=development npm run start:server
 
 # create prod env and start in production mode
 $ npm run env:production
-$ NODE_ENV=production npm run start:prod
+$ npm run start:prod
 
 $ npm run build
 

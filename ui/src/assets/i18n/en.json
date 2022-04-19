@@ -42,7 +42,8 @@
     "customerIdErrorMessage": "Can only contain A-Z, a-z, 0-9 and -_.",
     "appIdErrorMessage": "Can only contain A-Z, a-z, 0-9 and -_.",
     "editLocationMessage": "Edit Studio URL",
-    "exampleUrl": "https://example.com"
+    "exampleUrl": "https://example.com",
+    "locationMatchError": "Application ID: {{app_id}} already exist in environment: {{environment}} for customer ID: {{customer_id}}."
   },
   "paginator": {
     "paginatorIntl": {

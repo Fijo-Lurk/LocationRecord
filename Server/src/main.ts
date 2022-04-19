@@ -4,7 +4,7 @@ import { Logger, ValidationPipe } from '@nestjs/common';
 
 import { AppModule } from './app.module';
 import { getConnection } from 'typeorm';
-import { MyLogger } from 'config/logger';
+import { MyLogger } from '../config/logger';
 
 async function bootstrap() {
   try {
@@ -35,7 +35,7 @@ async function bootstrap() {
 
     app.enableShutdownHooks();
 
-    await app.listen(process.env.PORT);
+    await app.listen(process.env.WEB_SERVER_PORT || 3000);
     Logger.log(`🌍  Application is running on: ${await app.getUrl()}`);
   } catch (error) {
     Logger.error(`❌  Error starting server, ${error}`, '', 'Bootstrap', false);

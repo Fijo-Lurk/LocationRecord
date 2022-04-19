@@ -38,11 +38,10 @@ import { MatPaginationIntlService } from './location-table/mat-pagination-intl-s
 
 export function localeInitializer(translate: TranslateService) {
   return async () => {
-    if (localStorage.getItem('i18n') === 'se') {
-      translate.use('se');
-    } else {
-      translate.use('en');
-    }
+    localStorage.getItem('i18n')
+      ? translate.use(localStorage.getItem('i18n'))
+      : translate.use('en');
+
     registerLocaleData(localeEs, localeEsExtra);
     registerLocaleData(localeSv, localeSvExtra);
   };
