@@ -4,7 +4,7 @@ import { LocationController } from './location.controller';
 
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Location } from './entities/location.entity';
-import { MyLogger } from 'config/logger';
+import { MyLogger } from '../../config/logger';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Location])],

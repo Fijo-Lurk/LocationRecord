@@ -121,6 +121,18 @@
   </mat-form-field>
 </form>
 
+<mat-error class="invalidForm" *ngIf="locationForm.errors?.invalidForm"
+  >{{
+    "form.locationMatchError"
+      | translate
+        : {
+            app_id: locationForm.value.app_id,
+            customer_id: locationForm.value.customer_id,
+            environment: locationForm.value.environment
+          }
+  }}
+</mat-error>
+
 <div *ngIf="showForm" class="btn-container">
   <button type="reset" mat-button color="primary" (click)="onClear()">
     {{ "button.genericClearText" | translate }}

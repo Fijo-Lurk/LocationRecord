@@ -1,6 +1,7 @@
 {
   "scripts": {
     "start:server": "cd server && npm run start:dev",
+    "start:prod": "cd server && npm run start:prod",
     "start:ui": "cd ui && ng serve",
     "build:ui": "cd ui && npm run build",
     "build:server": "cd server && npm run build",

@@ -26,6 +26,7 @@ import { LocationService } from '../shared/service/location.service';
 export class CreateTableDataComponent implements OnInit {
   environment = ['production', 'staging', 'development', 'sandbox1'];
   showForm = false;
+  locations: LocationData[];
   appIds: string[] = [];
   private appIdNames: string[] = [];
   public appIdSuggestions: Observable<string[]>;
@@ -48,6 +49,26 @@ export class CreateTableDataComponent implements OnInit {
     }
     return validUrl.toString();
   }
+  findLocationMatchValidator: ValidatorFn = (control: AbstractControl) => {
+    let validForm = true;
+    const isMatch = this.locations.find(
+      (location) =>
+        location.customerId === control.value.customerId &&
+        location.appId === control.value.appId &&
+        location.environment === control.value.environment
+    );
+    if (isMatch) {
+      Object.keys(this.locationForm.controls).forEach((key) => {
+        this.locationForm.controls[key].setErrors({ invalidForm: true });
+      });
+      validForm = false;
+    } else {
+      validForm = true;
+    }
+
+    return validForm ? null : { invalidForm: true };
+  };
+
   locationForm = new FormGroup({
     customerId: new FormControl('', [Validators.required]),
     environment: new FormControl('', [Validators.required]),
@@ -66,7 +87,9 @@ export class CreateTableDataComponent implements OnInit {
     private snackBar: MatSnackBar,
     public translateService: TranslateService,
     private locationService: LocationService
-  ) {}
+  ) {
+    this.locationForm.setValidators(this.findLocationMatchValidator);
+  }
 
   ngOnInit(): void {
     this.applicationSuggestions();
@@ -84,7 +107,7 @@ export class CreateTableDataComponent implements OnInit {
         this.locationService.locations =
           this.locationService.locations.concat(value);
         this.snackBar.open(
-          this.translateService.instant('form.genericeFormSuccessfulCompleted'),
+          this.translateService.instant('snackBar.formSuccessfullySubmitted'),
           '',
           {
             duration: 2000,
@@ -115,6 +138,7 @@ export class CreateTableDataComponent implements OnInit {
       .findAll()
       .pipe(untilDestroyed(this))
       .subscribe((locations: LocationData[]) => {
+        this.locations = locations;
         const uniqueAppId = new Set(
           locations.map((location) => location.appId)
         );
